@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi"
+    />
+    <link rel="shortcut icon" href="./ico/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./ico/favicon.ico" type="image/x-icon" />
+    <title>We go - 마이페이지</title>
+    <script
+      src="https://kit.fontawesome.com/c88236e4f3.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- 외부 제이쿼리 연동 1. 최신버전 jquery / 2. jquery-migrate 플러그인-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
+    <script src="js/default.js"></script>
+    <script src="./js/header.js" defer></script>
+    <link rel="stylesheet" href="css/default.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link
+      rel="stylesheet"
+      media="( min-width:701px ) and ( max-width:1000px )"
+      href="css/tablet.css"
+    />
+    <link
+      rel="stylesheet"
+      media="( min-width:0px ) and ( max-width:700px )"
+      href="css/mobile.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="left">
+        <h1><a href="/IndexController">Wego</a></h1>
+        <a href="#" class="all">all Menu</a>
+        <div class="nav">
+          <h2>Menu</h2>
+          <nav>
+            <ul>
+              <li><a href="#a">산정보</a></li>
+              <li><a href="#a">등산후기</a></li>
+              <li><a href="#a">랭킹</a></li>
+              <li><a href="#a">모집</a></li>
+              <li><a href="#a" id="myPage">마이페이지</a></li>
+            </ul>
+          </nav>
+          <div>
+            <a href="#a" class="FAQ2"
+              ><i class="fa-solid fa-headset fa-2x"></i
+            ></a>
+          </div>
+          <a href="#a" class="close">Close</a>
+        </div>
+      </div>
+
+      <ul>
+        <li>
+          <a href="#a" class="bell"
+            ><img src="./svg/bell-regular.svg" alt="알림"
+          /></a>
+        </li>
+        <!-- <li class="join"><a href="#a">Sign In</a></li> -->
+        <span class="user">
+          <img id="userImg" src="https://picsum.photos/id/684/600/400" alt="" />
+          <!-- <a href="#" class="notice"><span class="blind">notice</span></a> -->
+          <span class="menubar">
+            <ul>
+              <li><a href="mypage/mypage.jsp">마이페이지</a></li>
+              <li><a href="#">알림</a></li>
+              <li><a href="#">문의하기</a></li>
+              <li class="text-red"><a href="#">로그아웃</a></li>
+            </ul>
+          </span>
+        </span>
+      </ul>
+      <div class="dim"></div>
+      <div class="search-bar-tag">
+        <div class="search-bar">
+          <form action="/SearchController" method="post">
+            <button class="search-icon" type="submit"></button>
+            <input
+              type="text"
+              name="q"
+              id="search"
+              value="q"
+              placeholder="Search"
+            />
+            <button class="cancel" type="reset"></button>
+          </form>
+        </div>
+      </div>
+    </header>
+    <!-- Contents -->
+    <div class="container">
+      <div style="color: blue; display: block; width: 50%"></div>
+    </div>
+  </body>
+</html>

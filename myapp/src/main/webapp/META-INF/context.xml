@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+
+    <!-- url="jdbc:oracle:thin:@localhost:1521/seoul" -->
+    
+    <!-- <Resource 
+        name="jdbc/OracleLocalDB" 
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="admin"
+        password="Wego12345678"
+        driverClassName="oracle.jdbc.OracleDriver"
+        url="jdbc:oracle:thin:@wegodb1_high?TNS_ADMIN=/Users/sowls/wallet/Wallet_wegodb1"
+        maxTotal="8"
+        maxIdle="2"
+    /> -->
+
+    <Resource 
+        name="jdbc/OracleCloudATP" 
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="admin"
+        password="Wego12345678"
+        driverClassName="oracle.jdbc.OracleDriver"
+        url="jdbc:oracle:thin:@wegodb1_high?TNS_ADMIN=/Users/sowls/wallet/Wallet_wegodb1"
+        maxTotal="8"
+        maxIdle="2"
+    />
+
+<!--     <Resource 
+        name="jdbc/OracleLocalDBWithDriverSpy" 
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="admin"
+        password="Wego12345678"
+        driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+        url="jdbc:oracle:thin:@wegodb1_high?TNS_ADMIN=/Users/sowls/wallet/Wallet_wegodb1"
+        maxTotal="8"
+        maxIdle="2"
+    /> -->
+
+    <Resource 
+        name="jdbc/OracleCloudATPWithDriverSpy" 
+        auth="Container"
+        type="javax.sql.DataSource"
+        username="admin"
+        password="Wego12345678"
+        driverClassName="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+        url="jdbc:log4jdbc:oracle:thin:@wegodb1_high?TNS_ADMIN=/Users/sowls/wallet/Wallet_wegodb1"
+        maxTotal="8"
+        maxIdle="2"
+    />
+
+</Context>    
