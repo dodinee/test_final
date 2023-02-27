@@ -28,7 +28,7 @@ public class DeleteCommentController extends HttpServlet {
 		try {
 
 			CommentService service = new CommentService();
-
+ 
 			service.deleteComment(commentCd);
 
 			res.sendRedirect(current);

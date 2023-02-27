@@ -2,7 +2,7 @@
 
 .mdcontainer {
 	display: none;
-	position : fixed;
+	position : fixed; 
 	/*position : absolute; */
 	top:25vh;
 	left: 35vw;

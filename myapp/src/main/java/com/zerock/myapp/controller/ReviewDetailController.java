@@ -29,7 +29,7 @@ public class ReviewDetailController extends HttpServlet {
 
 
 		try {
-			
+			 
 			
 			ReviewService service = new ReviewService();
 			CommentService serviceC = new CommentService();

@@ -7,7 +7,7 @@
 <jsp:include page="../header/index.jsp"></jsp:include>
 <%-- <jsp:include page="../footer/footer.html"></jsp:include> --%>
 
-
+ 
 <!DOCTYPE html>
 <html lang="ko">
 <head>

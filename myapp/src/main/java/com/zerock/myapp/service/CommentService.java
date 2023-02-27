@@ -145,7 +145,7 @@ public class CommentService {
 		sql.append("INSERT INTO COMMENT_TB (target_gb, target_cd, user_cd, contents) ");
 		sql.append("VALUES (?, ?, ?, ?)");
 		
-		try {
+		try { 
 
 			@Cleanup
 			Connection con = db.getConnection();

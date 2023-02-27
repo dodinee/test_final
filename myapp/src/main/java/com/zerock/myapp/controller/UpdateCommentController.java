@@ -31,7 +31,7 @@ public class UpdateCommentController extends HttpServlet {
 
 		try {
 
-			CommentService service;
+			CommentService service; 
 			service = new CommentService();
 
 			service.updateComment(commentCd, contents);
