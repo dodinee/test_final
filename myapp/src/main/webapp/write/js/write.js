@@ -231,6 +231,8 @@ $$(".drag-and-drop").ondrop = (e) => {
 
   const files = [...e.dataTransfer?.files];
 
+  console.log(files)
+
   // 업로드 파일 용량 체크
   if (isFileMaxSize(files)) {
     return false;

@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Objects;
 import java.util.concurrent.LinkedBlockingDeque;
 
@@ -14,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.zerock.myapp.JDBCConnect;
 import com.zerock.myapp.entity.Comment;
 
 import lombok.Cleanup;
@@ -199,11 +196,13 @@ public class CommentService {
 		} // try-catch
 	}
 
+	@SuppressWarnings("resource")
 	public void deleteComment(int commentCd) {
 
 		StringBuffer sql = new StringBuffer();
-
-		sql.append("DELETE FROM COMMENT_TB WHERE comment_cd = ?");
+		sql.append("SELECT * FROM COMMENT_TB WHERE EXISTS");
+		sql.append(" (SELECT * FROM COMMENT_TB WHERE mention_cd = ?)");
+		
 
 		try {
 
@@ -212,10 +211,34 @@ public class CommentService {
 			
 			@Cleanup
 			PreparedStatement pst = con.prepareStatement(sql.toString());
-			
 			pst.setInt(1, commentCd);
-
-			pst.executeUpdate();
+			
+			@Cleanup
+			ResultSet rs = pst.executeQuery();
+			
+			
+			
+			if(!rs.next()) {
+				
+				sql.delete(0, sql.length());
+				sql.append("DELETE FROM COMMENT_TB WHERE comment_cd = ?");
+				
+				pst = con.prepareStatement(sql.toString());
+				pst.setInt(1, commentCd);
+				pst.executeUpdate();
+				
+				
+			}else {
+				
+				sql.delete(0, sql.length()); //일단 내용만 바꿔보자..
+				sql.append("UPDATE COMMENT_TB SET contents = ? WHERE comment_cd = ?");
+				
+				pst = con.prepareStatement(sql.toString());
+				pst.setString(1, "삭제된 댓글입니다.");
+				pst.setInt(2, commentCd);
+				pst.executeUpdate();
+				
+			}// if-else
 
 		} catch (
 

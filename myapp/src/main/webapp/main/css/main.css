@@ -67,38 +67,38 @@ img {
   background-repeat: no-repeat;
   background-size: contain;
 }
-  /* rank */
-  .rankers {
-    display: grid;
-    grid-template-rows: repeat(1, 220px);
-    grid-template-columns: repeat(4, 220px);
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-  .rankers > a {
-    width: 100%;
-    height: 100%;
-  }
-  .rankers > a > div {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background-color: #00c71e;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .rankers #title {
-    font-size: 14px;
-  }
-  .ranker-img {
-    width: 100px;
-    height: 100px;
-    background: url(../svg/rank.svg);
-    background-repeat: no-repeat;
-  }
+/* rank */
+.rankers {
+  display: grid;
+  grid-template-rows: repeat(1, 220px);
+  grid-template-columns: repeat(4, 220px);
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.rankers > a {
+  width: 100%;
+  height: 100%;
+}
+.rankers > a > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background-color: #00c71e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rankers #title {
+  font-size: 14px;
+}
+.ranker-img {
+  width: 100px;
+  height: 100px;
+  background: url(../svg/rank.svg);
+  background-repeat: no-repeat;
+}
 /* mountain-info - 개별 스타일 X */
 /* recruit */
 .user-info {
@@ -152,6 +152,24 @@ img {
   justify-content: center;
   align-items: center;
   gap: 5px;
+}
+.scrollToTop {
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+  position: fixed;
+  right: 5%;
+  bottom: 12%;
+  display: none;
+}
+.chat {
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  display: none;
 }
 /* Tablet*/
 @media screen and (min-width: 481px) and (max-width: 1279px) {

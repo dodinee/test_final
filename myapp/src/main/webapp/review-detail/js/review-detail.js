@@ -49,19 +49,22 @@ $(".modifycmt").click(function() {
 		let target = $(this).parent().next();
 	
 	
-		if(target.prop('contenteditable') == 'true'){
-			
-			target.next().children(".updatebtn").hide();
-			target.removeAttr('contenteditable');
-			target.toggleClass("update", false);
-			
-		}else{
+		// if(target.prop('contenteditable') == 'true'){
 
-			target.next().children(".updatebtn").show();
+		// 	target.prev().show('fast');
+		// 	target.next().next().hide('fast');
+		// 	target.removeAttr('contenteditable');
+		// 	target.toggleClass("update", false);
+			
+		// }else{
+
+			target.prev().hide('fast');
+			target.next().hide('fast');
+			target.next().next().show('fast');
 			target.attr('contenteditable', true);
 			target.toggleClass("update", true);
 			target.focus();
-		}
+		// }
 		
 		$(".updatebtn").click(function() {
 			
@@ -72,6 +75,22 @@ $(".modifycmt").click(function() {
 		$("#updatecmt").submit();
 		});
 			
+	});
+});
+
+$(() => {
+
+	$("input[name='updatecls']").click(function() {
+
+		let target = $(this).parent().prev().prev();
+
+		
+		target.prev().show('fast');
+		target.next().show('fast');
+		target.next().next().hide('fast');
+		target.removeAttr('contenteditable');
+		target.toggleClass("update", false);
+		
 	});
 });
 
@@ -171,24 +190,25 @@ $(() => {
 	$(window).scroll(function(){
     
     if( $(this).scrollTop() < 200 ){
-      $(".totop").hide('normal');
+      $(".top").hide('normal');
     }
     else{
-      $(".totop").show('normal');
+      $(".top").show('normal');
     }
     
   });
 
-	$(".tocmt").click(function() {
+	$(".cmt").click(function() {
 	
 	 document.getElementById('cmtwrite').scrollIntoView({behavior : 'smooth'});
 	});
 	
-	$(".totop").click(function() {
+	$(".top").click(function() {
 		
 		window.scrollTo({top : 0, behavior: 'smooth'}); 
 	})
 });
+
 
 
 

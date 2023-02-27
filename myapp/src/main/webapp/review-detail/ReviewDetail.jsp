@@ -4,8 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%-- <jsp:include page="/WEB-INF/view/common/header.jsp"></jsp:include> --%>
-<jsp:include page="../header/index.jsp"></jsp:include>
-<%-- <jsp:include page="../footer/footer.html"></jsp:include> --%>
+<jsp:include page="../header/header.html"></jsp:include>
+<jsp:include page="../report/report.jsp"></jsp:include>
+<jsp:include page="../delete/delete.jsp"></jsp:include>
 
  
 <!DOCTYPE html>
@@ -21,16 +22,12 @@
 <script src="review-detail/js/default.js" defer></script>
 <script src="review-detail/js/review-detail.js" type="text/javascript" defer></script>
 <script src="report/js/report.js" type="text/javascript" defer></script>
-<link rel="stylesheet" href="review-detail/css/default.css"
-	type="text/css" />
-<link rel="stylesheet" href="header/css/footer.css"
-	type="text/css" />
-	<link rel="stylesheet" href="review-detail/css/index.css"
-	type="text/css" />
-<link rel="stylesheet" href="review-detail/css/reviewDetail.css?After"
-	type="text/css" />
-<link rel="stylesheet" href="report/css/report.css"
-	type="text/css" />
+<link rel="stylesheet" href="review-detail/css/default.css" type="text/css" />
+<link rel="stylesheet" href="footer/css/footer.css" type="text/css" />
+<link rel="stylesheet" href="header/css/header.css" type="text/css" />
+<link rel="stylesheet" href="review-detail/css/reviewDetail.css?After" type="text/css" />
+<link rel="stylesheet" href="report/css/report.css" type="text/css" />
+<link rel="stylesheet" href="delete/css/delete.css" type="text/css" />
 
 <!-- <script type="text/javascript">
 	$(document).ready(
@@ -146,7 +143,7 @@
 		
 		
 		
-		
+		<jsp:include page="../report/report.jsp"></jsp:include>
 		
       
       
@@ -176,15 +173,19 @@
 				</div>
 				
 				<div class="comment">${c.contents}</div>
-				<form id="updatecmt" action="/UpdateComment" method="post">
+<!-- 				<form id="updatecmt" action="/UpdateComment" method="post">
 					<input type="button" class="updatebtn" value="수정" />
 					<input type="hidden" name="contents" value="" />
 					<input type="hidden" name="current" value=""> 
 					<input type="hidden" name="commentCd" value=""> 
-				</form>
-				<div class="mentionbtn">
-					<input type="button" name="mention" value="↪ ︎답글달기" />
-				</div>
+				</form> -->
+<!-- 				<div class="mentionbtn"> -->
+					<input type="button" class="mentionbtn" name="mentionbtn" value="↪ ︎답글" />
+<!-- 				</div> -->
+					<div class="updatebtn">
+					<input type="button" name="updatecls" value="취소" />
+					<input type="button" name="updatebtn" value="수정" />
+					</div>
 			</div>
 	</div>
 	
@@ -200,7 +201,7 @@
 						<input type="hidden" name="targetCd" value="${r.sanReviewCd}"> 
 						<input type="hidden" name="userCd" value="${sessionScope.sessionId}">
 						<input type="hidden" name="mentionCd" value="${c.commentCd }">
-						<textarea  name="contents" placeholder="답글을 작성해주세요."></textarea>
+						<textarea  name="contents" placeholder="답글을 작성해주세요." required></textarea>
 						<input type="submit" value="등록" class="insert"> 
 						<input type="reset" value="취소" class="cancle">
 						<!-- 아.....취소 없앨까.....  -->
@@ -219,7 +220,7 @@
 	
 				<!-- 실험  삭제 모달창  bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
 				
- 		<form id="delete" action="" method="post"> 
+ 		<!-- <form id="delete" action="" method="post"> 
 				 <div class="delcontainer">
 					<input type="hidden" name="current" value=""> 
 					<input type="hidden" name="commentCd" value=""> 
@@ -227,7 +228,7 @@
       				<input type="button" class="delcancle" value="취소" />
       				<input type=submit name="remove" class="del" value="삭제" />
     			</div>
-		</form>	
+		</form>	 -->
 
 
 
@@ -237,7 +238,7 @@
 		
 		<!--  실험  신고사유 모달창 ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ  -->
 
-	<form id="report" action="/Report" method="post">
+	<%-- <form id="report" action="/Report" method="post">
 
 		<div class="mdcontainer">
 			<input type="hidden" name="current" value=""> 
@@ -271,7 +272,7 @@
 			</ul>
 		</div>
 
-	</form>
+	</form> --%>
 
 
 
@@ -296,11 +297,12 @@
 	
 	
 	<!-- 탑버튼이랑 댓글쓰기버튼  -->
-	<div class="totop">top</div>
-	<div class="tocmt">cmt</div>
+	<div class="to top">top</div> 
+	<div class="to cmt">cmt</div>
 
 	</div>
 
+<jsp:include page="../footer/footer.html"></jsp:include>
 </body>
 
 </html>

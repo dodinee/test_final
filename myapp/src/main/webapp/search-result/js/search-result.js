@@ -118,7 +118,7 @@ for (let i = 0; i < 3; i++) {
 } // for
 
 // 후기글 출력 => 임시로 산정보넣음
-for(let i = 0; i < 3; i++) {
+for (let i = 0; i < 3; i++) {
   review.innerHTML += mountainItem(
     mountains.title,
     mountains.context,
@@ -128,6 +128,23 @@ for(let i = 0; i < 3; i++) {
 } // for
 
 $$(".recruit .wrap").addEventListener("wheel", (e) => {
-  e.preventDefault();
-  e.currentTarget.scrollLeft += e.deltaY;
+  if (window.innerWidth < 1000) {
+    e.preventDefault();
+    e.currentTarget.scrollLeft += e.deltaY;
+  } // if
+});
+
+// top (scroll이 200이상 일때 top버튼 노출)
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 100) {
+    $(".scrollToTop, .chat").fadeIn();
+  } else {
+    $(".scrollToTop, .chat").fadeOut();
+  } // if-else
+});
+
+// 위로 올라가는 부드러운 애니메이션
+$(".scrollToTop, .chat").click(function () {
+  $("html, body").animate({ scrollTop: 0 }, 400);
+  return false;
 });
