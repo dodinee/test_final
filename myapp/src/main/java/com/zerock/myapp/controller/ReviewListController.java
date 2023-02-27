@@ -1,8 +1,9 @@
 package com.zerock.myapp.controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.concurrent.LinkedBlockingDeque;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,13 +44,19 @@ public class ReviewListController extends HttpServlet{
 		if(page_ != null) { page = Integer.parseInt(page_);}
 		
 		
-		ReviewService service = new ReviewService();
+		ReviewService service;
+		try {
+			service = new ReviewService();
 		
-		List<SanReview> list = service.getReviewList(field, query, page);
+			LinkedBlockingDeque<SanReview> list = service.getReviewList(field, query, page);
 //		int cnt = service.getNoticeCount(field, query);
 
 		req.setAttribute("list", list);
 //		req.setAttribute("cnt", cnt);
 		req.getRequestDispatcher("main/index.jsp").forward(req, res);
+		
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
 	}
 }

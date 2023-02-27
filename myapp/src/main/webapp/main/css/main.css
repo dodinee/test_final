@@ -1,0 +1,217 @@
+/* common */
+img {
+  /* 드래그 방지 */
+  -webkit-user-drag: none;
+}
+/* container */
+.container {
+  width: 70%;
+  margin: 100px auto;
+}
+/* container child - common */
+.mountain-info,
+.recruit,
+.review {
+  width: 100%;
+  margin: 30px 0;
+}
+.wrap {
+  overflow: scroll;
+  white-space: nowrap;
+  scrollbar-width: none;
+  user-select: none;
+  scroll-behavior: smooth;
+}
+.wrap::-webkit-scrollbar {
+  display: none;
+}
+.item {
+  display: inline-block;
+  width: 200px;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 10px;
+  text-align: center;
+  background-color: #fff;
+}
+.item > img {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.item > form {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px 0 0;
+}
+#title {
+  margin: 10px auto;
+}
+#text {
+  white-space: nowrap;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.favorite {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: url(../svg/favorite.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+  /* rank */
+  .rankers {
+    display: grid;
+    grid-template-rows: repeat(1, 220px);
+    grid-template-columns: repeat(4, 220px);
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  .rankers > a {
+    width: 100%;
+    height: 100%;
+  }
+  .rankers > a > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #00c71e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .rankers #title {
+    font-size: 14px;
+  }
+  .ranker-img {
+    width: 100px;
+    height: 100px;
+    background: url(../svg/rank.svg);
+    background-repeat: no-repeat;
+  }
+/* mountain-info - 개별 스타일 X */
+/* recruit */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-info > img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.item > hr {
+  border-top: 1px solid lightgray;
+  border-bottom: 0;
+  border-radius: 35px;
+  margin-bottom: 10px;
+}
+.recruit #title + img {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.recruit-data {
+  text-align: left;
+}
+.recruit-data > p {
+  margin: 0;
+}
+.recruit-data > #mountainName {
+  text-align: center;
+}
+/* review */
+.top-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-info ~ img {
+  width: 100%;
+  border-radius: 15px;
+}
+.bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom-info > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+/* Tablet*/
+@media screen and (min-width: 481px) and (max-width: 1279px) {
+  /* rank */
+  .rankers {
+    display: grid;
+    grid-template-rows: repeat(2, 250px);
+    grid-template-columns: repeat(2, 250px);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .rankers > a > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #00c71e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .rankers #title {
+    font-size: 20px;
+  }
+  .ranker-img {
+    width: 100px;
+    height: 100px;
+    background: url(../svg/rank.svg);
+    background-repeat: no-repeat;
+  }
+}
+/* Phone */
+@media screen and (max-width: 480px) {
+  /* rank */
+  .rankers {
+    display: grid;
+    grid-template-rows: repeat(2, 135px);
+    grid-template-columns: repeat(2, 135px);
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  .rankers > a > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #00c71e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .rankers #title {
+    font-size: 14px;
+  }
+  .ranker-img {
+    width: 50px;
+    height: 50px;
+    background: url(../svg/rank.svg);
+    background-repeat: no-repeat;
+  }
+}

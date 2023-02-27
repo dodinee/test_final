@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.LinkedBlockingDeque;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -78,37 +79,44 @@ public class ReviewService{
 	}
 	
 	//-------------------------------------------------------
-	public List<SanReview> getReviewList() {
+	
+	public LinkedBlockingDeque<SanReview> getReviewList() {
 
 		return getReviewList("title", "", 1);
 	}
 
-	public List<SanReview> getReviewList(int page) {
+	public LinkedBlockingDeque<SanReview> getReviewList(int page) {
 
 		return getReviewList("title", "", page);
 	}
 
-	public List<SanReview> getReviewList(String field, String query, int page) {
+	public LinkedBlockingDeque<SanReview> getReviewList(String field, String query, int page) {
 
 		StringBuffer sql = new StringBuffer();
 		
 		sql.append("SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY created_dt DESC) num, SAN_REVIEW_V.* FROM SAN_REVIEW_V WHERE ");
 		sql.append(field).append(" LIKE ?) WHERE num BETWEEN ? AND ?");
 		
-
-		List<SanReview> list = new ArrayList<>();
+		
+		LinkedBlockingDeque<SanReview> list = new LinkedBlockingDeque<>();
 
 		try {
 
-			JDBCConnect db = new JDBCConnect();
+			@Cleanup
+			Connection con = db.getConnection();
 			
-			PreparedStatement pst = db.con.prepareStatement(sql.toString());
+			@Cleanup
+			PreparedStatement pst = con.prepareStatement(sql.toString());
+			
 			
 			pst.setString(1, "%" + query + "%");
-			pst.setInt(2, (page - 1) * 5 + 1);
-			pst.setInt(3, page * 5);
+			pst.setInt(2, (page - 1) * 50 + 1);
+			pst.setInt(3, page * 50);
+			
+			@Cleanup
 			ResultSet rs = pst.executeQuery();
 
+			
 			while (rs.next()) {
 				
 				SanReview review = new SanReview();
@@ -125,8 +133,6 @@ public class ReviewService{
 				list.add(review);
 			} // while
 
-			db.close();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} // try-catch

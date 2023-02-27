@@ -1,7 +1,9 @@
 /* common */
 body {
   margin: 0px;
-  background: url(../img/bg-wego.jpg);
+  background: url(../img/bg-wego.png);
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -35,9 +37,10 @@ header {
   background-color: rgb(220, 237, 195);
 }
 .logo {
-  width: 50px;
+  display: block;
+  width: 180px;
   height: 50px;
-  background: url(../svg/main-icon.svg);
+  background: url(../img/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
@@ -86,30 +89,13 @@ header {
   margin-top: 20px;
   color: red;
 }
-/* .notice {
-  width: 35px;
-  height: 35px;
-  display: inline-block;
-  background: url(../svg/bell-off.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-.notice:hover {
-  width: 35px;
-  height: 35px;
-  display: inline-block;
-  background: url(../svg/bell-on.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-} */
 .user-profile-img {
-  /* display: none; */
+  display: none;
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 .login-btn {
-  display: none;
   width: 30px;
   height: 30px;
   border: 0;
@@ -154,7 +140,7 @@ header {
   width: 20px;
   height: 20px;
 }
-.cancel {
+.search-bar .cancel {
   display: none;
   width: 20px;
   height: 20px;
@@ -163,6 +149,22 @@ header {
   background-repeat: no-repeat;
 }
 @media screen and (max-width: 480px) {
+  .logo {
+    width: 35px;
+    height: 35px;
+    background: url(../svg/main-icon.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+  .login-btn {
+    width: 25px;
+    height: 25px;
+    border: 0;
+    background: url(../svg/login.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
   .navbar li {
     padding: 0 5px;
   }

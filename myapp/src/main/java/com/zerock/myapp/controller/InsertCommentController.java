@@ -1,7 +1,7 @@
 package com.zerock.myapp.controller;
 
 import java.io.IOException;
-import java.util.StringTokenizer;
+import java.util.Objects;
 
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
@@ -33,17 +33,29 @@ public class InsertCommentController extends HttpServlet{
 
 		int userCd = 2;
 //		String userCd = req.getParameter("userCd");
+		
 		String contents = req.getParameter("contents");
 		
+		Integer mentionCd = null;	
+		String mentionCd_ = req.getParameter("mentionCd");
 		
-		CommentService service;
-		try {
-			service = new CommentService();
+		if(mentionCd_ != null && !mentionCd_.equals("")) {
 			
+			mentionCd = Integer.parseInt(mentionCd_);
+		}
 		
-		Comment comment = new Comment();
+		try {
+			
+		CommentService service;
+		service = new CommentService();
 		
-		service.insertComment(gb, id, userCd, contents);
+		if(mentionCd == null) {
+			service.insertComment(gb, id, userCd, contents);
+		}
+		else {
+			service.insertMention(gb, id, userCd, contents, mentionCd);
+		}
+		
 		
 		res.sendRedirect("/ReviewDetail?id="+id);
 		

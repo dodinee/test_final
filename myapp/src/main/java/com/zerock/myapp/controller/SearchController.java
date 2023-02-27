@@ -1,8 +1,9 @@
 package com.zerock.myapp.controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.concurrent.LinkedBlockingDeque;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @NoArgsConstructor
-@WebServlet("/SearchController")
+@WebServlet("/Search")
 public class SearchController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -30,9 +31,10 @@ public class SearchController extends HttpServlet {
 	
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 	
-		String field_ = req.getParameter("f");
-		String query_ = req.getParameter("q");
-		String page_ = req.getParameter("p");
+		
+		String field_ = req.getParameter("f");	// 검색분류 
+		String query_ = req.getParameter("q");	// 검색어 
+		String page_ = req.getParameter("p");	// ㅎ 
 		
 		
 		String field = "title";
@@ -47,13 +49,16 @@ public class SearchController extends HttpServlet {
 		if(page_ != null) { page = Integer.parseInt(page_);}
 		
 		
+		try {
+		
+			
 		ReviewService serviceR = new ReviewService();
 		SanInfoService serviceS = new SanInfoService();
 		PartyService serviceP = new PartyService();
 		
-		List<SanReview> listR = serviceR.getReviewList(field, query, page);
-		List<SanInfo> listS = serviceS.getInfoList("san_name", query, page);
-		List<SanParty> listP = serviceP.getPartyList(field, query, page);
+		LinkedBlockingDeque<SanReview> listR = serviceR.getReviewList(field, query, page);
+		LinkedBlockingDeque<SanInfo> listS = serviceS.getInfoList("san_name", query, page);
+		LinkedBlockingDeque<SanParty> listP = serviceP.getPartyList(field, query, page);
 		
 		req.setAttribute("listS", listS);
 		req.setAttribute("listR", listR);
@@ -61,6 +66,12 @@ public class SearchController extends HttpServlet {
 		
 		req.getRequestDispatcher("search-result/search-result.jsp").forward(req, res);
 		
+		
+		} catch (NamingException e) {
+			
+			e.printStackTrace();
+			throw new ServletException(e);
+		}
 	}
 
 }

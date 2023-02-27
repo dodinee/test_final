@@ -3,7 +3,7 @@
   width: 70%;
   border: 1px solid lightgray;
   border-radius: 15px;
-  margin: 100px auto 100px;
+  margin: 100px auto;
   padding: 50px;
   background-color: #fff;
 }
@@ -43,7 +43,7 @@
   text-align: center;
   background-color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 .item-info {
@@ -65,6 +65,81 @@
   height: 100%;
   border-radius: 20px;
 }
+/* 통합검색 - 모집글 */
+.recruit .wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  overflow-x: hidden;
+}
+.recruit .item {
+  display: inline-block;
+  width: 200px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 10px;
+  text-align: center;
+  background-color: #fff;
+}
+.user-info {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.recruit #userImg {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.recruit .item > img {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.recruit .item > form {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px 0 0;
+}
+.recruit #title {
+  width: 200px;
+  margin: 10px auto;
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.recruit #text {
+  white-space: nowrap;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.recruit .recruit-data {
+  text-align: left;
+}
+.recruit .favorite {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  background: url(../svg/favorite.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 @media screen and (max-width: 480px) {
   .container {
     width: 80%;
@@ -72,6 +147,23 @@
     border-radius: 15px;
     margin: 100px auto 100px;
     padding: 0 20px;
+    background-color: #fff;
+  }
+  /* recruit */
+  .recruit .wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+  .recruit .item {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 0 10px;
+    text-align: center;
     background-color: #fff;
   }
   .out-line {
@@ -96,8 +188,12 @@
   }
   #itemContent {
     height: 120px;
-    display: inline-block;
-    overflow-y: hidden;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
   }
 }
 @media screen and (min-width: 481px) {
@@ -125,7 +221,11 @@
   #itemContent {
     height: 150px;
     margin: 0 20px;
-    display: inline-block;
-    overflow-y: hidden;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
   }
 }

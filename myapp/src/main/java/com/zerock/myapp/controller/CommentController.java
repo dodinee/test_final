@@ -1,8 +1,9 @@
 package com.zerock.myapp.controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.concurrent.LinkedBlockingDeque;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,9 +28,11 @@ public class CommentController extends HttpServlet{
 		String gb = req.getParameter("gb");
 		int id = Integer.parseInt(req.getParameter("id"));
 		
-		CommentService service = new CommentService();
+		CommentService service;
+		try {
+			service = new CommentService();
 		
-		List <Comment> comment;
+		LinkedBlockingDeque <Comment> comment;
 //		List <Comment> mention;
 		
 		comment = service.getComments(gb, id);
@@ -39,6 +42,11 @@ public class CommentController extends HttpServlet{
 //		req.setAttribute("listM", mention);
 		
 		req.getRequestDispatcher("review-detail/ReviewDetail.jsp").forward(req, res);
+
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

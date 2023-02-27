@@ -25,19 +25,25 @@ public class ReviewDetailController extends HttpServlet {
 
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-		int id = Integer.parseInt(req.getParameter("id"));
+		Integer id = Integer.parseInt(req.getParameter("id"));
 
-		ReviewService service;
+
 		try {
-			service = new ReviewService();
-
+			
+			
+			ReviewService service = new ReviewService();
 			CommentService serviceC = new CommentService();
 
+			
 			SanReview review;
 			LinkedBlockingDeque<Comment> comments;
 
+			
+			
 			review = service.getReview(id);
 			comments = serviceC.getComments("SAN_REVIEW", id);
+			
+			
 			
 			req.setAttribute("r", review);
 			req.setAttribute("listC", comments);
@@ -45,7 +51,9 @@ public class ReviewDetailController extends HttpServlet {
 			req.getRequestDispatcher("review-detail/ReviewDetail.jsp").forward(req, res);
 			
 		} catch (NamingException | ClassNotFoundException e1) {
+			
 			e1.printStackTrace();
+			throw new ServletException(e1);
 		}
 
 	}

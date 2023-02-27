@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="shortcut icon" href="main/ico/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="main/ico/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="main//css/header.css" type="text/css" />
+<link rel="stylesheet" href="main/css/header.css" type="text/css" />
 <link rel="stylesheet" href="main/css/index.css" type="text/css" />
 <script src="main/js/header.js" type="text/javascript" defer></script>
 </head>
@@ -69,7 +69,7 @@
 						<form action="#" method="get">
 							<button type="submit" name="favorite" value="true"
 								class="favorite"></button>
-							<span class="favorite-count">1000</span>
+							<span class="favorite-count">${s.likeCnt}</span>
 						</form>
 					</div>
 				</c:forEach>

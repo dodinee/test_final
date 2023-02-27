@@ -1,33 +1,55 @@
 package com.zerock.myapp.service;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.LinkedBlockingDeque;
 
-import com.zerock.myapp.JDBCConnect;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import com.zerock.myapp.entity.SanParty;
-import com.zerock.myapp.entity.SanReview;
 
+import lombok.Cleanup;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class PartyService{
 
+	private DataSource db;
+	
+	
+	public PartyService() throws NamingException {
+	
+		Context ctx = new InitialContext();
+		
+		Object obj = ctx.lookup("java:comp/env/jdbc/OracleCloudATPWithDriverSpy");
+		Objects.requireNonNull(obj);
+		
+		this.db = (DataSource) obj;
+	}// default constructor
+	
 	
 	public SanParty getParty(int id) throws ClassNotFoundException {
 		
 		
-		JDBCConnect db = new JDBCConnect();
 		String sql = "SELECT * FROM san_party_v WHERE san_party_cd=?";
 		SanParty party = new SanParty();
 
 		try {
 			
-			PreparedStatement st = db.con.prepareStatement(sql);
+			@Cleanup
+			Connection con = db.getConnection();
+			
+			@Cleanup
+			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, id);
 			
+			@Cleanup
 			ResultSet rs = st.executeQuery();
 			rs.next();
 
@@ -49,7 +71,6 @@ public class PartyService{
 			
 			log.info(party);
 			
-			db.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -59,17 +80,17 @@ public class PartyService{
 	}
 	
 	//-------------------------------------------------------
-	public List<SanParty> getPartyList() {
+	public LinkedBlockingDeque<SanParty> getPartyList() {
 
 		return getPartyList("title", "", 1);
 	}
 
-	public List<SanParty> getPartyList(int page) {
+	public LinkedBlockingDeque<SanParty> getPartyList(int page) {
 
 		return getPartyList("title", "", page);
 	}
 
-	public List<SanParty> getPartyList(String field, String query, int page) {
+	public LinkedBlockingDeque<SanParty> getPartyList(String field, String query, int page) {
 
 		StringBuffer sql = new StringBuffer();
 		
@@ -77,17 +98,21 @@ public class PartyService{
 		sql.append(field).append(" LIKE ?) WHERE num BETWEEN ? AND ?");
 		
 
-		List<SanParty> list = new ArrayList<>();
+		LinkedBlockingDeque<SanParty> list = new LinkedBlockingDeque<>();
 
 		try {
 
-			JDBCConnect db = new JDBCConnect();
+			@Cleanup
+			Connection con = db.getConnection();
 			
-			PreparedStatement pst = db.con.prepareStatement(sql.toString());
+			@Cleanup
+			PreparedStatement pst = con.prepareStatement(sql.toString());
 			
 			pst.setString(1, "%" + query + "%");
-			pst.setInt(2, (page - 1) * 5 + 1);
-			pst.setInt(3, page * 5);
+			pst.setInt(2, (page - 1) * 50 + 1);
+			pst.setInt(3, page * 50);
+			
+			@Cleanup
 			ResultSet rs = pst.executeQuery();
 
 			while (rs.next()) {
@@ -112,7 +137,6 @@ public class PartyService{
 				list.add(party);
 			} // while
 
-			db.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

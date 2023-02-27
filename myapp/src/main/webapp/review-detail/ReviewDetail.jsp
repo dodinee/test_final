@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%-- <jsp:include page="/WEB-INF/view/common/header.jsp"></jsp:include> --%>
 <jsp:include page="../header/index.jsp"></jsp:include>
+<%-- <jsp:include page="../footer/footer.html"></jsp:include> --%>
 
 
 <!DOCTYPE html>
@@ -13,15 +14,22 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
-<script src="review-detail/js/header.js" defer></script>
+<title>ReviewDetail</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="header/js/header.js" defer></script>
 <script src="review-detail/js/default.js" defer></script>
-<script src="review-detail/js/review-detail.js" defer></script>
+<script src="review-detail/js/review-detail.js" type="text/javascript" defer></script>
+<script src="report/js/report.js" type="text/javascript" defer></script>
 <link rel="stylesheet" href="review-detail/css/default.css"
 	type="text/css" />
-<link rel="stylesheet" href="review-detail/css/index.css"
+<link rel="stylesheet" href="header/css/footer.css"
+	type="text/css" />
+	<link rel="stylesheet" href="review-detail/css/index.css"
 	type="text/css" />
 <link rel="stylesheet" href="review-detail/css/reviewDetail.css?After"
+	type="text/css" />
+<link rel="stylesheet" href="report/css/report.css"
 	type="text/css" />
 
 <!-- <script type="text/javascript">
@@ -111,6 +119,11 @@
 
 <body>
 
+
+
+
+
+<!--  게시글 컨테이너  -->
 	<div class="container">
 		<div class="header">
 			<div class="mnt">🌱 ${r.sanName} 🌱</div>
@@ -130,54 +143,164 @@
 			<div class="content">${r.contents}</div>
 		</div>
 		<div class="cnt">댓글 (${listC.size()})</div>
+		
+		
+		
+		
+		
+      
+      
+      
+		<!--   댓글 컨테이너   -->
 		<c:forEach items="${listC}" var="c">
 			<div class="cmtcontainer">
+			
 				<c:choose>
-					<c:when test="${c.mentionCd != 0}">
-						<div class="comments mention">
+					<c:when test="${c.mentionCd == 0}">
+						<div class="comments">
 					</c:when>
 					<c:otherwise>
-						<div class="comments">
+						<div class="comments mention">
 					</c:otherwise>
 				</c:choose>
+				
 				<div class="cmtuser">${c.nickname }</div>
 				<div class="cmtdate">
 					<fmt:formatDate pattern="MM-dd HH:mm" value="${c.createdDt}"></fmt:formatDate>
 				</div>
 				<div class="btns">
-					<input type="submit" name="modify" value="수정" /> <input
-						type="submit" name="delete" value="삭제" /> <input type="submit"
-						name="report" value="신고" />
+					<input type="hidden" name="commentCd" value ="${c.commentCd}">
+					<input type="submit" class="modifycmt" name="modifycmt" value="수정" /> 
+					<input type="button" class="deletecmt" name="deletecmt" value="삭제" /> 
+					<input type="button" class="reportcmt" name="reportcmt" value="신고" />
 				</div>
+				
 				<div class="comment">${c.contents}</div>
+				<form id="updatecmt" action="/UpdateComment" method="post">
+					<input type="button" class="updatebtn" value="수정" />
+					<input type="hidden" name="contents" value="" />
+					<input type="hidden" name="current" value=""> 
+					<input type="hidden" name="commentCd" value=""> 
+				</form>
 				<div class="mentionbtn">
-					<input type="submit" name="mention" value="↪︎답글달기" />
+					<input type="button" name="mention" value="↪ ︎답글달기" />
 				</div>
 			</div>
 	</div>
-				<!-- 실험  -->
+	
+	
+	
+				
+				<!--  멘션 작성 폼  -->
 				<c:if test="${c.mentionCd == 0}">
-				<div class="mentionwrite">
-				<div class="cmtwrite">
-					<textarea  name="contents"></textarea>
-					<input type="button" value="등록" id="insert"> 
-					<input type="reset" value="취소" id="cancle">
-				</div>
-				</div>
-					</c:if>
-				<!-- 실험  -->
+					<div class="mentionwrite">
+				<form action="/InsertComment" method="post">
+					<div class="cmtwrite">
+						<input type="hidden" name="targetGb" value="SAN_REVIEW"> 
+						<input type="hidden" name="targetCd" value="${r.sanReviewCd}"> 
+						<input type="hidden" name="userCd" value="${sessionScope.sessionId}">
+						<input type="hidden" name="mentionCd" value="${c.commentCd }">
+						<textarea  name="contents" placeholder="답글을 작성해주세요."></textarea>
+						<input type="submit" value="등록" class="insert"> 
+						<input type="reset" value="취소" class="cancle">
+						<!-- 아.....취소 없앨까.....  -->
+					</div>
+				</form>
+					</div>
+				</c:if>
+				
 	</c:forEach>
+	
+	
+	
+
+	
+	
+	
+				<!-- 실험  삭제 모달창  bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb -->
+				
+ 		<form id="delete" action="" method="post"> 
+				 <div class="delcontainer">
+					<input type="hidden" name="current" value=""> 
+					<input type="hidden" name="commentCd" value=""> 
+      				<div class="delment">삭제하시겠습니까?</div>
+      				<input type="button" class="delcancle" value="취소" />
+      				<input type=submit name="remove" class="del" value="삭제" />
+    			</div>
+		</form>	
+
+
+
+	
+		
+		
+		
+		<!--  실험  신고사유 모달창 ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ  -->
+
+	<form id="report" action="/Report" method="post">
+
+		<div class="mdcontainer">
+			<input type="hidden" name="current" value=""> 
+			<input type="hidden" name="targetGb" value=""> 
+			<input type="hidden" name="targetCd" value=""> 
+			<input type="hidden" name="userCd" value="${sessionScope.sessionId}"> 
+				<!-- <input type="hidden" name="reportGb" value=""> --> 
+			<ul class="reasons">
+				<li class="mdtitle">신고 사유 선택</li>
+				<li class="check"><input type="radio" name="check" value="스팸"
+					id="r1" /> <label for="r1" class="reason">스팸 / 홍보글 입니다.</label> <span>✓</span>
+				</li>
+				<li class="check"><input type="radio" name="check" value="불법"
+					id="r2" /> <label for="r2" class="reason">불법 정보를 포함하고
+						있습니다.</label> <span>✓</span></li>
+				<li class="check"><input type="radio" name="check" value="음란물"
+					id="r3" /> <label for="r3" class="reason">음란물 / 청소년에게 유해한
+						내용입니다.</label> <span>✓</span></li>
+				<li class="check"><input type="radio" name="check" value="혐오"
+					id="r4" /> <label for="r4" class="reason">욕설 / 생명경시 / 혐오
+						표현입니다.</label> <span>✓</span></li>
+				<li class="check"><input type="radio" name="check" value="개인정보"
+					id="r5" /> <label for="r5" class="reason">개인정보 노출 게시물입니다.</label>
+					<span>✓</span></li>
+				<li>
+					<div class="btn">
+						<button type="button" class="mdcancle" value="cancle">취소</button>
+						<button type="submit" class="mdreport" value="report">신고</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+	</form>
+
+
+
+
+
+
+
+
+	<!--  새 댓글 작성 폼  -->
 	<form action="/InsertComment" method="POST">
-		<input type="hidden" name="targetGb" value="SAN_REVIEW"> <input
-			type="hidden" name="targetCd" value="${r.sanReviewCd}"> <input
-			type="hidden" name="userCd" value="${sessionScope.sessionId}">
-		<div class="cmtwrite">
-			<textarea name="contents"></textarea>
-			<input type="submit" value="등록" id="insert"> <input
-				type="reset" value="취소" id="cancle">
+		<input type="hidden" name="targetGb" value="SAN_REVIEW"> 
+		<input type="hidden" name="targetCd" value="${r.sanReviewCd}"> 
+		<input type="hidden" name="userCd" value="${sessionScope.sessionId}"><!-- 세션아이디 넘기는거 아닐듯 맞나? 아닐듯 맞나?  -->
+		<input type="hidden" name="mentionCd">
+		<div class="cmtwrite" id="cmtwrite">
+			<textarea id = "contents" name="contents" placeholder="댓글을 작성해주세요." required></textarea>
+			<input type="submit" value="등록" class="insert"> 
+			<input type="reset" value="취소" class="cancle">
 		</div>
 	</form>
+	
+	
+	
+	<!-- 탑버튼이랑 댓글쓰기버튼  -->
+	<div class="totop">top</div>
+	<div class="tocmt">cmt</div>
+
 	</div>
+
 </body>
 
 </html>
