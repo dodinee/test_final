@@ -1,4 +1,5 @@
 
+/* 바깥 컨테이너  */
 .container {
   display: flex;
   max-width: 1024px;
@@ -8,7 +9,8 @@
   justify-content: center;
 }
 
-/* ê²Œì‹œê¸€ ë³¸ë¬¸*/
+/* 제목 부분 */
+
 .header { 
   height: 150px;
   display: flex;
@@ -22,6 +24,10 @@
   border: 0;
   border-radius: 10px;
 }
+
+
+/* 글 본문 */
+ 
 .contents {
   display: grid;
   grid-template-columns: 50px auto 50px;
@@ -36,6 +42,9 @@
   border: 0;
   border-radius: 10px;
 }
+
+/* 글 내부 */
+
 .userpic {
   width: 45px;
   height: 45px;
@@ -68,7 +77,8 @@
   margin: 15px 0;
 }
 
-/*ëŒ“ê¸€ë¶€ë¶„*/
+
+/* 댓글 수 */
 .cnt {
   display: flex;
   width: 60px;
@@ -80,12 +90,17 @@
   align-items: center;
   border-radius: 10px;
 }
+
+/* 댓글 전체 컨테이너 */
+
 .cmtcontainer {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: minmax(20px, auto);
   margin: 5px 0;
 }
+
+/* 각 댓글 컨테이너 */
 .comments {
   display: grid;
   padding: 12px;
@@ -98,6 +113,9 @@
   border-radius: 10px;
   align-items:end;
 }
+
+/* 댓글 내부 */
+
 .cmtuser {
   grid-column: 1;
   font-size: 14px;
@@ -120,21 +138,25 @@
 }
 .comment {
   grid-column : 1/5;
-  padding: 5px 0;
-  margin : 5px 0;
-  border-top: 1px solid #cfcfcf;
+  padding: 5px 5px;
+  margin : 5px 6px;
+  border-top: 0px solid #cfcfcf;
   min-height:40px;
 }
+
+/* 답글 버튼 */
+
 input[name="mentionbtn"] {
   width:50px;
   height : 20px;
   border-radius : 10px;
-/*   background-color: rgb(78 197 61 / 74%); */
-/*   color:white; */
 }
+
+/* 수정, 취소 버튼 */
 .updatebtn {
   display : none;
   grid-column : -1;
+  width:80px;
 }
 .updatebtn > input{
 	background-color: rgba(78, 197, 61, 0.9);
@@ -148,17 +170,23 @@ input[name="mentionbtn"] {
   background-color: rgb(190 190 190);
 }
 .update{
-  background-color:cyan;
-}
+  border: 1px solid #d9d9d9;
+  border-radius:10px;
+} 
 .mentionbtn {
   grid-column-start: 1;
 }
+
+/* 멘션 컨테이너 */
 .mention {
   grid-column: 2/-1;
 }
 .mention > .mentionbtn {
   display: none;
 }
+
+
+/* 댓글 작성 폼 */
 .cmtwrite {
   display: grid;
   height: 100px;
@@ -213,6 +241,8 @@ input[name="mentionbtn"] {
   border-radius: 10px;
   margin: 10px 0px 10px 90px;
 }
+
+/* 탑버튼, 코멘트버튼 */
 .to{
   position : fixed;
   right : 30px;
@@ -222,6 +252,7 @@ input[name="mentionbtn"] {
   background-size: contain;
   color: rgba(0, 0, 0, 0);
   opacity : 90%;
+  z-index:1;
 }
 .cmt{
   bottom : 40px;    	
@@ -233,6 +264,7 @@ input[name="mentionbtn"] {
   bottom : 80px;
   background: url(../svg/top.svg);
 }
+/* 서치바 숨기기 */
 .search-bar{	
 	display :none;
 }

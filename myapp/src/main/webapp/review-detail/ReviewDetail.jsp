@@ -4,9 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%-- <jsp:include page="/WEB-INF/view/common/header.jsp"></jsp:include> --%>
-<jsp:include page="../header/header.html"></jsp:include>
-<jsp:include page="../report/report.jsp"></jsp:include>
-<jsp:include page="../delete/delete.jsp"></jsp:include>
+<jsp:include page="../header/header.html"></jsp:include><%-- 헤더 --%>
+<jsp:include page="../report/report.jsp"></jsp:include><%-- 신고 --%> 
+<jsp:include page="../delete/delete.jsp"></jsp:include><%-- 삭제 --%>
 
  
 <!DOCTYPE html>
@@ -16,18 +16,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ReviewDetail</title>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
 <script src="header/js/header.js" defer></script>
 <script src="review-detail/js/default.js" defer></script>
 <script src="review-detail/js/review-detail.js" type="text/javascript" defer></script>
 <script src="report/js/report.js" type="text/javascript" defer></script>
+
 <link rel="stylesheet" href="review-detail/css/default.css" type="text/css" />
-<link rel="stylesheet" href="footer/css/footer.css" type="text/css" />
 <link rel="stylesheet" href="header/css/header.css" type="text/css" />
-<link rel="stylesheet" href="review-detail/css/reviewDetail.css?After" type="text/css" />
+<link rel="stylesheet" href="footer/css/footer.css" type="text/css" />
 <link rel="stylesheet" href="report/css/report.css" type="text/css" />
 <link rel="stylesheet" href="delete/css/delete.css" type="text/css" />
+<link rel="stylesheet" href="review-detail/css/reviewDetail.css?After" type="text/css" />
 
 <!-- <script type="text/javascript">
 	$(document).ready(

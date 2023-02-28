@@ -28,8 +28,9 @@ public class InsertCommentController extends HttpServlet{
 		//현재페이지가 리뷰/모집 중에 어떤건지 어떻게 알지? 글코드는 몇인지 어떻게 가져오지?
 		//걔가 누군지는 세션에서 알아내는건가?
 		
+		String current = req.getParameter("current");
 		String gb = req.getParameter("targetGb");
-		int id = Integer.parseInt(req.getParameter("targetCd"));
+		int cd = Integer.parseInt(req.getParameter("targetCd"));
 
 		int userCd = 2;
 //		String userCd = req.getParameter("userCd");
@@ -38,6 +39,7 @@ public class InsertCommentController extends HttpServlet{
 		
 		Integer mentionCd = null;	
 		String mentionCd_ = req.getParameter("mentionCd");
+		
 		
 		if(mentionCd_ != null && !mentionCd_.equals("")) {
 			
@@ -50,14 +52,14 @@ public class InsertCommentController extends HttpServlet{
 		service = new CommentService();
 		
 		if(mentionCd == null) {
-			service.insertComment(gb, id, userCd, contents);
+			service.insertComment(gb, cd, userCd, contents);
 		}
 		else {
-			service.insertMention(gb, id, userCd, contents, mentionCd);
+			service.insertMention(gb, cd, userCd, contents, mentionCd);
 		}
 		
 		
-		res.sendRedirect("/ReviewDetail?id="+id);
+		res.sendRedirect(current);
 		
 		} catch (NamingException e) {
 			e.printStackTrace();

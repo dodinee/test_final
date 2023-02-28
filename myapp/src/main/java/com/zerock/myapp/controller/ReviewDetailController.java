@@ -48,7 +48,7 @@ public class ReviewDetailController extends HttpServlet {
 			req.setAttribute("r", review);
 			req.setAttribute("listC", comments);
 			
-			req.getRequestDispatcher("review-detail/ReviewDetail.jsp").forward(req, res);
+			req.getRequestDispatcher("review-detail/ReviewDetail2.jsp").forward(req, res);
 			
 		} catch (NamingException | ClassNotFoundException e1) {
 			
