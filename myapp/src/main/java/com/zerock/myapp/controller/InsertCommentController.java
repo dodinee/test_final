@@ -35,7 +35,7 @@ public class InsertCommentController extends HttpServlet{
 		int userCd = 2;
 //		String userCd = req.getParameter("userCd");
 		
-		String contents = req.getParameter("contents");
+		String contents = req.getParameter("contents").replaceAll("\r\n", "<br>");
 		
 		Integer mentionCd = null;	
 		String mentionCd_ = req.getParameter("mentionCd");

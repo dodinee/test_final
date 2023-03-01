@@ -1,5 +1,5 @@
 
-$(() => {
+$(() => { /* 새 댓글 작성 폼  */
 
 	$(".ncmt").click(function(){
 		$("#reviewForm").attr("action", "/InsertComment");
@@ -10,6 +10,7 @@ $(() => {
 		$("#reviewForm").submit();
 	});
 });
+
 
 $(() => { /* 답글 관련 */
 	
@@ -48,18 +49,11 @@ $(() => { /* 신고 관련 */
 	$(".reportcmt").click(function() {
 
 		/* 폼 속성 설정 */
-
 		let commentCd = $(this).parent().children('input[name=targetComment]').val();
-		
-		$(".mdcontainer").children('input[name=current]').attr('value', window.location.href);
-		$(".mdcontainer").children('input[name=targetCd]').attr('value', commentCd);
-		$(".mdcontainer").children('input[name=targetGb]').attr('value', 'COMMENT');
-		
+		$(".mdcontainer").children('input[name="targetCd"]').attr('value', commentCd);
 
 		$('input[name=check]').prop('checked', false); /* 체크 초기화 */
 
-//		if($(".mdcontainer").css('display') == 'none'){ /* 모달창 on/off */
-			
 			$(".mdcontainer").show('normal').css('display', 'flex');/* on */
 
 			$(document).mouseup(function (e){ /* 외부 영역 클릭 시 닫기 */
@@ -71,19 +65,9 @@ $(() => { /* 신고 관련 */
     			var code = e.keyCode || e.which;
  
     			if (code == 27) { // 27은 ESC 키번호
-        		$(".mdcontainer").hide('fast');
+        			$(".mdcontainer").hide('fast');
    				}
 			});
-	});
-	/* 취소 버튼 클릭 시 모달 창 제거 */
-	$(".mdcancle").click(function(){
-		
-		$(".mdcontainer").hide('fast');
-	});
-	/* 신고 버튼 클릭 시 신고 폼 날리기 ( 아 근데 이거 댓글 한정임.......하....)*/
-	$(".reportcmt").click(function() {
-		
-		
 	});
 });
 
@@ -91,81 +75,56 @@ $(() => { /* 신고 관련 */
 
 
 $(() => { /* 수정 관련 */
+
+	// let ddd;
 	
 	$(".modifycmt").click(function() {
-	
+
 		let commentCd = $(this).parent().children('input[name=targetComment]').val();
 		let target = $(this).parent().next();
-		var contents = target.text();
-
+		let ddd = target.html();
+		console.log(ddd);
 			/* 댓글 수정 폼 on */
-			target.prev().hide('fast');
-			target.next().hide('fast');
-			target.next().next().show('fast');
+			target.siblings(".btns").hide('fast');
+			target.siblings(".mentionbtn").hide('fast');
+			target.siblings(".updatebtn").show('fast');
 			target.attr('contenteditable', true);
 			target.toggleClass("update", true);
 			target.focus();
 		
-		$(".updatebtn").click(function() { /* 수정 폼 속성 설정 */
-				
-		$("#updatecmt").children('input[name="current"]').attr('value', window.location.href);
-		$("#updatecmt").children('input[name="contents"]').attr('value', $(this).parent().prev().text());
-		$("#updatecmt").children('input[name="commentCd"]').attr('value', commentCd);
-		$("#updatecmt").submit();
+		/* 댓글 수정 폼 속성 설정 */
+		$("#reviewForm").attr("action", "/UpdateComment");
+		$("#reviewForm").attr("method", "post");
+		$("#current").attr("value", window.location.href);
+		$("#commentCd").attr('value', commentCd);
+	
+		 /* 수정 폼 속성 설정 */
+		$("input[name='updatecmt']").click(function() {
+
+			$("#contents").attr("value", $(this).parent().siblings(".comment").html());
+			$("#reviewForm").submit();
 		});
 		
-	});
 	
-	/* 댓글 수정 폼 off  */
-	$("input[name='updatecls']").click(function() {
+		/* 댓글 수정 폼 off  */
+		$("input[name='updatecls']").click(function() {
 
-		let target = $(this).parent().prev().prev();
+		let target = $(this).parent().siblings(".comment");
 
-		/* 취소 눌렀을 때 원래 내용으로 되돌아가야되는데 어떻게함....*/
-		target.prev().show('fast');
-		target.next().show('fast');
-		target.next().next().hide('fast');
-		target.removeAttr('contenteditable');
-		target.toggleClass("update", false);
+			/* 취소 눌렀을 때 원래 내용으로 되돌아가야되는데 어떻게함....해결 */
+			/* 멘션이면 답글달기 안생겨야되는데 어캄 */
+			target.siblings(".btns").show('fast');	
+			target.siblings(".mentionbtn").show('fast');
+			target.siblings(".updatebtn").hide('fast');
+			target.removeAttr('contenteditable');
+			target.html(ddd);
+			target.toggleClass("update", false);
 		
+		});
 	});
 });
 
 
-
-$(() => { /* 삭제 관련 */
-	
-	$(".deletecmt").click(function() {
-		
-		/* 삭제 폼 속성 설정 */
-		let commentCd = $(this).parent().children('input[name=targetComment]').val();
-		
-		$(".delcontainer").children('input[name=commentCd]').attr('value', commentCd);
-		$(".delcontainer").children('input[name=current]').attr('value', window.location.href);
-		$("#delete").attr('action', '/DeleteComment');
-		
-//		if($(".delcontainer").css('display') == 'none'){
-			$(".delcontainer").show('normal').css('display', 'grid');
-			
-			$(document).mouseup(function (e){ /* 외부 영역 클릭 시 닫기 */
-				if($(".delcontainer").has(e.target).length === 0){
-					$(".delcontainer").hide('fast');
-				}
-			});
-			$(document).keydown(function(e){/* esc입력시 닫기 */
-    			var code = e.keyCode || e.which;
- 
-    			if (code == 27) {
-	        		$(".delcontainer").hide('fast');
-   				}
-			});		
-	});
-	
-	$(".delcancle").click(function() { /* 취소 클릭 시 닫기  */
-		$(".delcontainer").hide('fast');
-	});
-	
-});
 
 
 $(() => { /* 탑, 코멘트 버튼 스크롤 이벤트 */
@@ -195,21 +154,5 @@ $(() => { /* 탑, 코멘트 버튼 스크롤 이벤트 */
 
 
 
-
-/*d아 신고 ㅡㅡ 
-$(() => {
-	
-	$(".mdreport").click(function() {
-		
-		var form = $("#report");
-
-					form.attr("method", "POST");
-					form.attr("action", "<c:url value="/Report" />");
-
-					form.submit();
-	}
-})
-
-*/
 
 

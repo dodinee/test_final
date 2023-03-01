@@ -23,36 +23,68 @@ public class ReportController extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		
+//		if ("application/json".equals(req.getContentType())) {
+//			
+//			BufferedReader reader = req.getReader();
+//			StringBuilder sb = new StringBuilder();
+//			String line;
+//			
+//			while ((line = reader.readLine()) != null) {
+//				
+//				sb.append(line);
+//			}// while
+//			
+//			String jsonData = sb.toString();
+//
+//			// JSON 데이터 형식 변환 
+//			ObjectMapper objectMapper = new ObjectMapper();
+//		
+//			// ...
+//		} else {
+//			// Content-Type이 application/json이 아닐 경우 처리
+//			// ...
+//		}
 		
+		
+		
+// POST 안해 안됨 안해 두번다시 보지말자 
+		
+//			
+//		JSONParser parser = new JSONParser();
+//		JSONObject formData = (JSONObject) parser.parse();
+//		
+//		
+//		String current = (String) formData.get("current");
+//		String targetGb = (String) formData.get("targetGb");
+//		int targetCd = (int) formData.get("targetCd");
+//		int userCd = (int) formData.get("userCd");
+//		String reportGb = (String) formData.get("reportGb");
+		
+		
+// GET 
 		String current = req.getParameter("current");
-		
 		String targetGb = req.getParameter("targetGb");
-		
 		int targetCd = Integer.parseInt(req.getParameter("targetCd"));
-		
-		int userCd = 2;
-//		int userCd = Integer.parseInt(req.getParameter("userCd"));
-		
-		String reportGb = req.getParameter("check");
+		int userCd = Integer.parseInt(req.getParameter("userCd"));
+		String reportGb = req.getParameter("reportGb");
 
-		CommentService service;
-
-		
 		try {
+
+			CommentService service;
 
 			if (targetGb.equals("COMMENT")) {
 
 				service = new CommentService();
 				service.reportComment(targetCd, userCd, reportGb);
-				
+
 				res.sendRedirect(current);
 //				req.getRequestDispatcher("review-detail/ReviewDetail.jsp").forward(req, res);
 			}
 
 		} catch (NamingException e) {
-			
-			e.printStackTrace();
-		}
-	}
 
-}
+			e.printStackTrace();
+		}// try-catch
+	}// service
+
+}// end class

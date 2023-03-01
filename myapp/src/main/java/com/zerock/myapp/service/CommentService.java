@@ -59,7 +59,15 @@ public class CommentService {
 			ResultSet rs = pst.executeQuery();
 
 			while (rs.next()) {
-
+				
+				if(rs.getString("STATE").equals("Y")) { // 삭제상태인데 자식이 없으면 스킵 
+					
+					if(this.getMentions(rs.getInt("COMMENT_CD")).isEmpty()) {
+						continue;
+					}// if
+				}// if
+				
+				// 아니면 만들어서 자식이랑 같이 넣기 
 				Comment comment = new Comment();
 
 				comment.setCommentCd(rs.getInt("COMMENT_CD"));
@@ -95,7 +103,7 @@ public class CommentService {
 		
 		StringBuffer sql = new StringBuffer();
 
-		sql.append("SELECT * FROM COMMENT_V WHERE mention_cd = ? ORDER BY mention_cd, comment_cd");
+		sql.append("SELECT * FROM COMMENT_V WHERE mention_cd = ? ORDER BY comment_cd");
 
 		LinkedBlockingDeque<Comment> deq = new LinkedBlockingDeque<>();
 		
@@ -112,7 +120,7 @@ public class CommentService {
 			ResultSet rs = pst.executeQuery();
 
 			while (rs.next()) {
-
+				
 				Comment comment = new Comment();
 
 				comment.setCommentCd(rs.getInt("COMMENT_CD"));
@@ -153,9 +161,9 @@ public class CommentService {
 			pst.setString(1, targetGb);
 			pst.setInt(2, targetCd);
 			pst.setInt(3, userCd);
-			
-			contents.replaceAll("\r\n", "<br>");
+	
 			pst.setString(4, contents);
+			
 
 			pst.executeUpdate();
 
@@ -200,6 +208,8 @@ public class CommentService {
 	public void deleteComment(int commentCd) {
 
 		StringBuffer sql = new StringBuffer();
+		
+		// 멘션코드로 commentCd를 가진 자식댓글이 있는지 확인 
 		sql.append("SELECT * FROM COMMENT_TB WHERE EXISTS");
 		sql.append(" (SELECT * FROM COMMENT_TB WHERE mention_cd = ?)");
 		
@@ -218,7 +228,7 @@ public class CommentService {
 			
 			
 			
-			if(!rs.next()) {
+			if(!rs.next()) { // 없으면 바로 삭제 
 				
 				sql.delete(0, sql.length());
 				sql.append("DELETE FROM COMMENT_TB WHERE comment_cd = ?");
@@ -228,14 +238,17 @@ public class CommentService {
 				pst.executeUpdate();
 				
 				
-			}else {
+			}else { // 있으면 상태 변경 
 				
 				sql.delete(0, sql.length()); //일단 내용만 바꿔보자..
-				sql.append("UPDATE COMMENT_TB SET contents = ? WHERE comment_cd = ?");
+				sql.append("UPDATE COMMENT_TB SET contents = ?, user_cd = ?, state = ? WHERE comment_cd = ?");
 				
 				pst = con.prepareStatement(sql.toString());
 				pst.setString(1, "삭제된 댓글입니다.");
-				pst.setInt(2, commentCd);
+				pst.setInt(2, 0);
+				pst.setString(3, "Y");
+				pst.setInt(4, commentCd);
+				
 				pst.executeUpdate();
 				
 			}// if-else
@@ -290,6 +303,7 @@ public class CommentService {
 			@Cleanup
 			PreparedStatement pst = con.prepareStatement(sql.toString());
 			
+//			contents.replaceAll("\r\n", "<br>");
 			pst.setString(1, contents);
 //			pst.setString(2, "CREATED_DT");
 			pst.setInt(2, commentCd);
