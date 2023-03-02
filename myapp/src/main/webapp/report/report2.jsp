@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
     
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -17,7 +17,8 @@
   </head>
   <body>
 
-		<div class="mdcontainer">
+	<div class="mdcontainer">
+	<input type="hidden" name="targetGb" value=""/>
 	<input type="hidden" name="targetCd" value=""/>
 	
 			<ul class="reasons">

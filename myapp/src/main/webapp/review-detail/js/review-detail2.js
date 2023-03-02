@@ -1,18 +1,28 @@
 
 
-
-
-
-
-$(() => { /* 새 댓글 작성 폼  */
+$(() => { /* 새 댓글 post 전송  */
 
 	$(".ncmt").click(function(){
-		$("#reviewForm").attr("action", "/InsertComment");
-		$("#reviewForm").attr("method", "post");
-		$("#current").attr("value", window.location.href);
-		$("#contents").attr("value", $(this).prev().val());
-
-		$("#reviewForm").submit();
+	
+		$.ajax({
+			url : "/InsertComment",
+			type : "POST",
+			data : 
+			{
+				targetGb : $("#targetGb").val(),
+				targetCd : $("#targetCd").val(),
+				userCd : 2, /*수정해야 됨 */
+				contents : $(this).prev().val()
+			},
+			
+			success : function(data){
+				alert("댓글이 등록되었습니다.");
+				location.reload();
+			},
+			error : function(){
+			 	alert("댓글 달기  오류남");  /* 나중에 고쳐  */
+			}
+		});
 	});
 });
 
@@ -22,9 +32,9 @@ $(() => { /* 새 댓글 작성 폼  */
 
 $(() => { /* 답글 관련 */
 	
-/* 답글 버튼 클릭시 멘션 작성 창 */	
+/* 답글 버튼 클릭시 멘션 작성 창 on */	
   $(".mentionbtn").click(function () {
-	  
+	
     if ($(this).parent().parent().next().css("display") == "none") {
 	    
 		$(this).attr('value', "☓ 닫기");
@@ -36,54 +46,41 @@ $(() => { /* 답글 관련 */
 		$(this).attr('value', "↪ ︎답글");
 	}
   });
-	/* 등록버튼 클릭 시 멘션 등록 폼 날리기  */
-	$(".men").click(function() {
-
-		$("#reviewForm").attr("action", "/InsertComment");
-		$("#reviewForm").attr("method", "post");
-		$("#current").attr("value", window.location.href);
-		$("#mentionCd").attr("value", $(this).prev().val());
-		$("#contents").attr("value", $(this).prev().prev().val());
-		
-		$("#reviewForm").submit();
+	/* 등록버튼 클릭 시 멘션 등록 post전송   */
+	$(".men").click(function(){
+	
+		$.ajax({
+			url : "/InsertComment",
+			type : "POST",
+			data : 
+			{
+				targetGb : $("#targetGb").val(),
+				targetCd : $("#targetCd").val(),
+				mentionCd : $(this).siblings("#targetComment").val(),
+				userCd : 2, /*수정해야 됨 */
+				contents : $(this).prev().val()
+			},
+			
+			success : function(data){
+				alert("답글이 등록되었습니다.");
+				location.reload();
+			},
+			error : function(){
+			 	alert("답글달기  오류남");  /* 나중에 고쳐  */
+			 	location.reload();
+			}
+		});
 	});
 });
 
 
-
-
-$(() => { /* 신고 관련 */
-	/* 신고 버튼 클릭 시 신고 모달창 */
-	$(".reportcmt").click(function() {
-
-		/* 폼 속성 설정 */
-		let commentCd = $(this).parent().children('input[name=targetComment]').val();
-		$(".mdcontainer").children('input[name="targetCd"]').attr('value', commentCd);
-
-		$('input[name=check]').prop('checked', false); /* 체크 초기화 */
-
-			$(".mdcontainer").show('normal').css('display', 'flex');/* on */
-
-			$(document).mouseup(function (e){ /* 외부 영역 클릭 시 닫기 */
-				if($(".mdcontainer").has(e.target).length === 0){
-					$(".mdcontainer").hide('fast');
-				}
-			});
-			$(document).keydown(function(e){/* esc입력시 닫기 */
-    			var code = e.keyCode || e.which;
- 
-    			if (code == 27) { // 27은 ESC 키번호
-        			$(".mdcontainer").hide('fast');
-   				}
-			});
-	});
-});
 
 
 
 
 $(() => { /* 수정 관련 */
 	
+	/* 댓글 수정  */
 	$(".modifycmt").click(function() {
 
 		let commentCd = $(this).parent().children('input[name=targetComment]').val();
@@ -98,14 +95,9 @@ $(() => { /* 수정 관련 */
 		target.toggleClass("update", true);
 		target.focus();
 		
-		/* 댓글 수정 폼 속성 설정 */
-		/*
-		$("#reviewForm").attr("action", "/UpdateComment");
-		$("#reviewForm").attr("method", "post");
-		$("#current").attr("value", window.location.href);
-		$("#commentCd").attr('value', commentCd);
-	
-		 /* 수정 폼 속성 설정 */
+		 /* 수정 post전송  */
+		 /* 아수정 됐는데 오류났다고 뜸 ㅋㅋㅋㅋㅋㅋ????왜지?????... 해결... */
+		 /* 문제2 : 한번에 하나만 눌리게 해야함..그래야할듯...  */
 		$("input[name='updatecmt']").click(function() {
 
 			$.ajax({
@@ -119,22 +111,23 @@ $(() => { /* 수정 관련 */
 				},
 				success : function(data){
 					alert("댓글 수정이 완료되었습니다.");
+					location.reload();
 				},
 				error : function(){
 			 		alert("댓글수정  오류남");  /* 나중에 고쳐  */
+			 		location.reload();
 				}	
 			});
 		});
-//			$("#contents").attr("value", $(this).parent().siblings(".comment").html());
-//			$("#reviewForm").submit();
+		
 	
 		/* 댓글 수정 폼 off  */
 		$("input[name='updatecls']").click(function() {
 
 			let target = $(this).parent().siblings(".comment");
 
-			/* 취소 눌렀을 때 원래 내용으로 되돌아가야되는데 어떻게함....해결 */
-			/* 멘션이면 답글달기 안생겨야되는데 어캄 */
+			/* 취소 눌렀을 때 원래 내용으로 되돌아가야되는데 어떻게함....해결 .. 다시 안해결 ..*/
+			/* 멘션이면 답글달기 안생겨야되는데 어캄  ... 해결 */
 			target.siblings(".btns").show('fast');	
 			target.siblings(".mentionbtn").show('fast');
 			target.siblings(".updatebtn").hide('fast');
@@ -144,7 +137,11 @@ $(() => { /* 수정 관련 */
 		
 		});
 	});
+	
+	/* 글 수정 ----- 이거 작성폼으로 이동해서 수정하는걸로 해야할 듯  */
+	
 });
+
 
 
 

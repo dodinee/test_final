@@ -37,7 +37,7 @@ public class CommentService {
 
 		StringBuffer sql = new StringBuffer();
 
-		sql.append("SELECT * FROM COMMENT_V WHERE target_gb = ? AND target_cd = ? AND mention_cd IS NULL ORDER BY comment_cd ASC");
+		sql.append("SELECT * FROM COMMENT_V WHERE target_gb = ? AND target_cd = ? AND comment_gb = 'COMMENT' ORDER BY comment_cd ASC");
 
 //		List<Comment> list = new ArrayList<>(); // 쓰레기 
 //		Deque<Comment> deq = new ArrayDeque<>();
@@ -178,8 +178,8 @@ public class CommentService {
 
 		StringBuffer sql = new StringBuffer();
 
-		sql.append("INSERT INTO COMMENT_TB (target_gb, target_cd, user_cd, contents, mention_cd) ");
-		sql.append("VALUES (?, ?, ?, ?, ?)");
+		sql.append("INSERT INTO COMMENT_TB (comment_gb, target_gb, target_cd, user_cd, contents, mention_cd) ");
+		sql.append("VALUES ('mention', ?, ?, ?, ?, ?)");
 
 		try {
 

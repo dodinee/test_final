@@ -23,7 +23,7 @@ public class UpdateCommentController extends HttpServlet {
 
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-		String current = req.getParameter("current");
+//		String current = req.getParameter("current");
 		
 		int commentCd = Integer.parseInt(req.getParameter("commentCd"));
 		
@@ -36,7 +36,7 @@ public class UpdateCommentController extends HttpServlet {
 
 			service.updateComment(commentCd, contents);
 
-			res.sendRedirect(current);
+//			res.sendRedirect(current);
 
 		} catch (NamingException e) {
 			

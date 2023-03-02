@@ -20,14 +20,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
-<script src="header/js/header.js" type="text/javascript" defer></script>
-<script src="review-detail/js/default.js?ver=1" type="text/javascript" defer></script>
-<script src="review-detail/js/review-detail.js?ver=1" type="text/javascript" defer></script>
-<script src="report/js/report.js?ver=1" type="text/javascript" defer></script>
+<script src="/header/js/header.js" type="text/javascript" defer></script>
+<script src="/review-detail/js/default.js?ver=1" type="text/javascript" defer></script>
+<script src="/review-detail/js/review-detail2.js?ver=1" type="text/javascript" defer></script>
+<!-- <script src="report/js/report.js?ver=1" type="text/javascript" defer></script> -->
 
-<link rel="stylesheet" href="review-detail/css/default.css" type="text/css" />
-<<link rel="stylesheet" href="header/css/header.css" type="text/css" />
-<link rel="stylesheet" href="review-detail/css/reviewDetail.css?ver=1" type="text/css" />
+<link rel="stylesheet" href="/header/css/default.css" type="text/css" />
+<link rel="stylesheet" href="/header/css/header.css" type="text/css" />
+<link rel="stylesheet" href="/review-detail/css/reviewDetail.css?ver=1" type="text/css" />
 
 </head>
 
@@ -76,7 +76,7 @@
       
       
 		<!--   댓글 컨테이너   !-->
-		
+
 		<c:forEach items="${listC}" var="c">
 			<div class="cmtcontainer">
 			
@@ -117,8 +117,8 @@
 		<c:if test="${c.mentionCd == 0}">
 			<div class="mentionwrite">
 				<div class="cmtwrite">
-					<textarea  name="contents" placeholder="답글을 작성해주세요." required></textarea>
 					<input type="hidden" id= "targetComment" name="targetComment" value="${c.commentCd}">
+					<textarea  name="contents" placeholder="답글을 작성해주세요." required></textarea>
 					<input type="button" value="등록" class="insert men"> 
 					<input type="reset" value="취소" class="cancle">
 				</div>

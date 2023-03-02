@@ -47,7 +47,7 @@ public class ReportController extends HttpServlet {
 		
 		
 		
-// POST 안해 안됨 안해 두번다시 보지말자 
+// JSON 안해 안됨 안해 두번다시 보지말자 
 		
 //			
 //		JSONParser parser = new JSONParser();
@@ -62,7 +62,6 @@ public class ReportController extends HttpServlet {
 		
 		
 // GET 
-		String current = req.getParameter("current");
 		String targetGb = req.getParameter("targetGb");
 		int targetCd = Integer.parseInt(req.getParameter("targetCd"));
 		int userCd = Integer.parseInt(req.getParameter("userCd"));
@@ -77,7 +76,7 @@ public class ReportController extends HttpServlet {
 				service = new CommentService();
 				service.reportComment(targetCd, userCd, reportGb);
 
-				res.sendRedirect(current);
+//				res.sendRedirect(current);
 //				req.getRequestDispatcher("review-detail/ReviewDetail.jsp").forward(req, res);
 			}
 
