@@ -40,8 +40,8 @@
 
 <!--  게시글 컨테이너  !-->
 	<div class="container">
-		<input type="hidden" id= "targetGb" name="targetGb" value="SAN_PARTY"/>
-		<input type="hidden" id= "targetCd" name="targetCd" value="${p.sanPartyCd}"/>
+		<%-- <input type="hidden" id= "targetGb" name="targetGb" value="SAN_PARTY"/>
+		<input type="hidden" id= "targetCd" name="targetCd" value="${p.sanPartyCd}"/> --%>
 		
 		<div class="header">
 			<!--  산 이름  -->
@@ -50,7 +50,7 @@
 			<div class="title">${p.title }</div> <%-- 글제목 --%>
 			<!--  작성일  -->
 			<div class="dt"> <%-- 작성일시  --%>
-				<fmt:formatDate pattern="yyyy년 MM월 dd일 HH:mm" value="${p.createdDt}"></fmt:formatDate>
+				<fmt:formatDate pattern="yyyy년 M월 d일 HH:mm" value="${p.createdDt}"></fmt:formatDate>
 			</div>
 		</div>
 		
@@ -61,8 +61,9 @@
 				alt="" class="userpic" /> <!-- 바꿔야됨 --> 
 			<div class="username">${p.nickname}</div>
 			<!--  좋아요 버튼  -->
-			<div class="likeCnt">${p.likeCnt }</div>
-			<input class= "like" type="button" value=""/>
+			<div class="likeCnt">
+				<input class= "like" type="button" value=""/>${p.likeCnt }
+			</div>
 			<!--  글 사진  -->
 			<img
 				<%-- src="${p.img }" --%>
@@ -109,7 +110,7 @@
 			</div>
 			<input type="button" class="join" name="join" value="참여하기"/>
 		</div>
-		
+		<!--  댓글 수  -->
 		<div class="cnt">댓글 (${listC.size()})</div>
 	</div>
 	

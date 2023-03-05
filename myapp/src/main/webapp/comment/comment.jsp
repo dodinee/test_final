@@ -57,16 +57,16 @@
 				
 		<!--  멘션 작성 폼 -->  
 		<c:if test="${c.mentionCd == 0}">
-			<div class="mentionwrite">
-				<div class="cmtwrite">
+			<!-- <div class="mentionwrite"> -->
+				<div class="cmtwrite" id="mentionwrite">
 					<input type="hidden" id="targetGb" name="targetGb" value="${targetGb}"/>
 					<input type="hidden" id="targetCd" name="targetCd" value="${targetCd }"/>
 					<input type="hidden" id= "targetComment" name="targetComment" value="${c.commentCd}">
-					<textarea  name="contents" placeholder="답글을 작성해주세요." required></textarea>
-					<input type="button" value="등록" class="insert men"> 
+					<textarea  id="mcontents" name="contents" placeholder="답글을 작성해주세요." required></textarea>
+					<input type="button" value="등록" class="insert men" disabled> 
 					<input type="button" value="취소" class="cancle">
 				</div>
-			</div>
+			<!-- </div> -->
 		</c:if>
 	</c:forEach>
 	
@@ -75,8 +75,8 @@
 		<input type="hidden" id="targetGb" name="targetGb" value="${targetGb}"/>
 		<input type="hidden" id= "targetCd" name="targetCd" value="${targetCd}"/>	
 		<textarea id = "contents" name="contents" placeholder="댓글을 작성해주세요." required></textarea>
-		<input type="button" value="등록" class="insert ncmt"> 
-		<input type="reset" value="취소" class="cancle">
+		<input type="button" value="등록" class="insert ncmt" disabled> 
+		<input type="button" value="취소" class="cancle">
 		
 	</div>
 </body>

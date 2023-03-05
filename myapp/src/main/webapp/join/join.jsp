@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -20,8 +23,8 @@
 			alt="" class="" /><!-- 바꿔야됨  -->
 		<div class="sanName">${p.sanName }</div>
 		<ul class="joinInfo">
-			<li>날짜 : ${p.partyYmd }</li>
-			<li>시간 : ${p.partyTime }</li>
+			<li>날짜 : <fmt:formatDate pattern="yyyy년 MM월 dd일 (E)" value="${p.partyYmd}"></fmt:formatDate></li>
+			<li>시간 : <fmt:formatDate pattern="a HH시 mm분" value="${p.partyTime}"></fmt:formatDate></li>
 			<c:if test="${p.items != null }">
 			<li>준비물 : ${p.items }</li>
 			</c:if>

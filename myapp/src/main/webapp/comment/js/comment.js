@@ -1,8 +1,30 @@
 
-
-
 $(() => { /* 새 댓글 post 전송  */
-
+	
+	/* 입력내용에 따라 등록버튼 활성/비활성  */
+	$("#contents").on('input', function(){
+		
+		if($("#contents").val() != ''){
+			$(this).next().prop('disabled', false).css({
+				'color' : 'white',
+				'background-color' : 'rgb(78, 197, 61)',
+			});
+		}else{
+			$(this).next().prop('disabled', true).css({
+				'color' : 'gray',
+				'background' : 'buttonface' 
+			});
+		}
+	});
+	
+	$(".cancle").click(function(){
+		$(this).prev().prev().val('');
+		$(this).prev().prop('disabled', true).css({
+				'color' : 'gray',
+				'background' : 'buttonface' 
+			});
+	});
+	
 	$(".ncmt").click(function(){
 		
 		$.ajax({
@@ -30,6 +52,8 @@ $(() => { /* 새 댓글 post 전송  */
 
 $(() => { /* 답글 관련 */
 	
+	$("#mentionwrite").hide();
+	
   /* 답글 버튼 클릭시 멘션 작성 창 on */	
   	$(".mentionbtn").click(function () {
 	
@@ -37,18 +61,36 @@ $(() => { /* 답글 관련 */
 	    	
 			$(this).attr('value', "☓ 닫기");
 	    	$(this).parent().parent().next().show('normal');
-		
+
     	} else {
-		
+			/* 닫을 때 작성된 내용 삭제  */
+			$("#mcontents").val('');
     		$(this).parent().parent().next().hide('normal');
 			$(this).attr('value', "↪ ︎답글");
 		}
   	});
-  
+  	/* 취소 클릭 시 멘션 작성 창 off  */
   	$(".cancle").click(function(){
-		console.log('ff');
-		$(this).parent().parent().hide('fast');
+		$(this).parent().parent(".mentionwrite").hide('fast');
+		$(".mentionbtn").attr('value', "↪ ︎답글");
 	});
+	
+	/* 입력내용에 따라 등록버튼 활성/비활성  */
+	$("#mcontents").on('input', function(){
+		
+		if($(this).val() != ''){
+			$(this).next().prop('disabled', false).css({
+				'color' : 'white',
+				'background-color' : 'rgb(78, 197, 61)',
+			});
+		}else{
+			$(this).next().prop('disabled', true).css({
+				'color' : 'gray',
+				'background' : 'buttonface' 
+			});
+		}
+	});
+	
 	/* 등록버튼 클릭 시 멘션 등록 post전송   */
 	$(".men").click(function(){
 			
