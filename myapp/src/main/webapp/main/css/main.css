@@ -1,11 +1,20 @@
 /* common */
-img {
+.total-wrap {
+  min-width: 320px;
+  max-width: 1024px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container img {
   /* 드래그 방지 */
   -webkit-user-drag: none;
 }
 /* container */
 .container {
-  width: 70%;
+  width: 100%;
   margin: 100px auto;
 }
 /* container child - common */
@@ -74,7 +83,7 @@ img {
   grid-template-columns: repeat(4, 220px);
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 .rankers > a {
   width: 100%;
@@ -89,9 +98,6 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.rankers #title {
-  font-size: 14px;
 }
 .ranker-img {
   width: 100px;
@@ -172,7 +178,11 @@ img {
   display: none;
 }
 /* Tablet*/
-@media screen and (min-width: 481px) and (max-width: 1279px) {
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .container {
+    box-sizing: border-box;
+    padding: 20px;
+  }
   /* rank */
   .rankers {
     display: grid;
@@ -192,9 +202,6 @@ img {
     justify-content: center;
     align-items: center;
   }
-  .rankers #title {
-    font-size: 20px;
-  }
   .ranker-img {
     width: 100px;
     height: 100px;
@@ -204,6 +211,10 @@ img {
 }
 /* Phone */
 @media screen and (max-width: 480px) {
+  .container {
+    box-sizing: border-box;
+    padding: 20px;
+  }
   /* rank */
   .rankers {
     display: grid;
@@ -222,9 +233,6 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .rankers #title {
-    font-size: 14px;
   }
   .ranker-img {
     width: 50px;

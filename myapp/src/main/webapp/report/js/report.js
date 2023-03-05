@@ -23,7 +23,7 @@ let reportModal = function(){
 		
 		$(".mdcancle").click(function() {
 			$(".mdcontainer").hide('fast');
-		})
+		});
 };
 
 
@@ -50,10 +50,6 @@ $(() => { /* 신고 관련 */
 	$(".reportRv").click( function() {
 		
 		reportModal();
-		
-		let sanReviewCd = $(this).siblings("#targetReview").val();
-		$(".mdcontainer").children("input[name='targetGb']").attr('value', "SAN_REVIEW");
-		$(".mdcontainer").children("input[name='targetCd']").attr('value', sanReviewCd);
 	});
 });
 
@@ -72,7 +68,7 @@ $(() => { /* 신고 관련 */
 			{
 				targetGb : $("input[name='targetGb']").val(),
 				targetCd : $("input[name='targetCd']").val(),
-				userCd : 2,
+				userCd : 2,/* 나중에 바꿔야됨  */
 				reportGb : $("input[name='check']:checked").val()
 			},
 			

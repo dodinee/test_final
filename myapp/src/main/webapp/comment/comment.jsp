@@ -3,21 +3,26 @@
 <%@page import="com.zerock.myapp.entity.Comment" %>
 <%@page import= "java.util.List" %>
 <%@page import= "java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
     
-  <%
-//   	List<Comment> listC = request.getParameter("listC");
-//   	아 생각해보니까 이거 안되네..........
-  %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/comment/css/comment.css?ver=1" type="text/css" />
+<script src="/comment/js/comment.js?ver=1" type="text/javascript" defer></script>
 </head>
 <body>
-	<c:forEach items= var="c">
-			<div class="cmtcontainer">
+
+
+	<c:forEach items="${listC}" var="c">
+	
 			
+			<div class="cmtcontainer">
+
 				<c:choose>
 					<c:when test="${c.mentionCd == 0}">
 						<div class="comments">
@@ -48,20 +53,31 @@
 				</div>
 			</div>
 		</div>
-	
 
 				
-		<!--  멘션 작성 폼  -->
+		<!--  멘션 작성 폼 -->  
 		<c:if test="${c.mentionCd == 0}">
 			<div class="mentionwrite">
 				<div class="cmtwrite">
+					<input type="hidden" id="targetGb" name="targetGb" value="${targetGb}"/>
+					<input type="hidden" id="targetCd" name="targetCd" value="${targetCd }"/>
 					<input type="hidden" id= "targetComment" name="targetComment" value="${c.commentCd}">
 					<textarea  name="contents" placeholder="답글을 작성해주세요." required></textarea>
 					<input type="button" value="등록" class="insert men"> 
-					<input type="reset" value="취소" class="cancle">
+					<input type="button" value="취소" class="cancle">
 				</div>
 			</div>
-		</c:if>			
+		</c:if>
 	</c:forEach>
+	
+	<div class="cmtwrite" id="cmtwrite">
+	
+		<input type="hidden" id="targetGb" name="targetGb" value="${targetGb}"/>
+		<input type="hidden" id= "targetCd" name="targetCd" value="${targetCd}"/>	
+		<textarea id = "contents" name="contents" placeholder="댓글을 작성해주세요." required></textarea>
+		<input type="button" value="등록" class="insert ncmt"> 
+		<input type="reset" value="취소" class="cancle">
+		
+	</div>
 </body>
 </html>

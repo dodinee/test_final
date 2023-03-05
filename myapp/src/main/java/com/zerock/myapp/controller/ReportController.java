@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.zerock.myapp.service.CommentService;
+import com.zerock.myapp.service.ReportService;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -63,23 +63,19 @@ public class ReportController extends HttpServlet {
 		
 // GET 
 		String targetGb = req.getParameter("targetGb");
+		
 		int targetCd = Integer.parseInt(req.getParameter("targetCd"));
+		
 		int userCd = Integer.parseInt(req.getParameter("userCd"));
+		
 		String reportGb = req.getParameter("reportGb");
 
 		try {
-
-			CommentService service;
-
-			if (targetGb.equals("COMMENT")) {
-
-				service = new CommentService();
-				service.reportComment(targetCd, userCd, reportGb);
-
-//				res.sendRedirect(current);
-//				req.getRequestDispatcher("review-detail/ReviewDetail.jsp").forward(req, res);
-			}
-
+			
+			ReportService service = new ReportService();
+			
+			service.insertReport(targetGb, targetCd, userCd, reportGb);
+			
 		} catch (NamingException e) {
 
 			e.printStackTrace();

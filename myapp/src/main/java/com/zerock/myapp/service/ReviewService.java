@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.LinkedBlockingDeque;
 
@@ -14,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.zerock.myapp.JDBCConnect;
 import com.zerock.myapp.entity.SanReview;
 
 import lombok.Cleanup;
@@ -133,6 +130,7 @@ public class ReviewService {
 		return list;
 	}
 
+	
 	public void updateReview(int sanReviewCd) throws ClassNotFoundException {
 
 		/* 생각해보니까 얘는 작성폼으로 넘어가서 기존 글 제목이랑 내용을 붙여줘야하는거네 */
@@ -167,4 +165,30 @@ public class ReviewService {
 		return;
 	}
 
+	public void deleteReview(int sanReviewCd) throws ClassNotFoundException {
+		
+		
+		StringBuffer sql = new StringBuffer();
+
+		sql.append("DELETE SAN_REVIEW_TB WHERE san_review_cd = ?");
+
+		try {
+
+			@Cleanup
+			Connection con = db.getConnection();
+			
+			@Cleanup
+			PreparedStatement pst = con.prepareStatement(sql.toString());
+			
+			pst.setInt(1, sanReviewCd);
+
+			pst.executeUpdate();
+
+		} catch (
+
+		SQLException e) {
+			e.printStackTrace();
+		} // try-catch
+	}
+	
 }

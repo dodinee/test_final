@@ -260,35 +260,35 @@ public class CommentService {
 		} // try-catch
 	}
 	
-	public void reportComment(int commentCd, int userCd, String reportGb) {
-		
-		StringBuffer sql = new StringBuffer();
-
-		sql.append("INSERT INTO REPORT_TB (target_gb, target_cd, user_cd, report_gb) ");
-		sql.append("VALUES (?, ?, ?, ?)");
-
-		try {
-
-			@Cleanup
-			Connection con = db.getConnection();
-			
-			@Cleanup
-			PreparedStatement pst = con.prepareStatement(sql.toString());
-			
-			pst.setString(1, "COMMENT");
-			pst.setInt(2, commentCd);
-			pst.setInt(3, userCd);
-			pst.setString(4, reportGb);
-
-			pst.executeUpdate();
-
-		} catch (
-
-		SQLException e) {
-			e.printStackTrace();
-		} // try-catch
-	}
-
+//	public void reportComment(int commentCd, int userCd, String reportGb) {
+//		
+//		StringBuffer sql = new StringBuffer();
+//
+//		sql.append("INSERT INTO REPORT_TB (target_gb, target_cd, user_cd, report_gb) ");
+//		sql.append("VALUES (?, ?, ?, ?)");
+//
+//		try {
+//
+//			@Cleanup
+//			Connection con = db.getConnection();
+//			
+//			@Cleanup
+//			PreparedStatement pst = con.prepareStatement(sql.toString());
+//			
+//			pst.setString(1, "COMMENT");
+//			pst.setInt(2, commentCd);
+//			pst.setInt(3, userCd);
+//			pst.setString(4, reportGb);
+//
+//			pst.executeUpdate();
+//
+//		} catch (
+//
+//		SQLException e) {
+//			e.printStackTrace();
+//		} // try-catch
+//	}
+//
 	public void updateComment(int commentCd, String contents) {
 		
 		StringBuffer sql = new StringBuffer();

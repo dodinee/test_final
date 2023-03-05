@@ -18,8 +18,8 @@
   <body>
 
 	<div class="mdcontainer">
-	<input type="hidden" name="targetGb" value=""/>
-	<input type="hidden" name="targetCd" value=""/>
+	<input type="hidden" name="targetGb" value="${targetGb }"/>
+	<input type="hidden" name="targetCd" value="${targetCd }"/>
 	
 			<ul class="reasons">
 			

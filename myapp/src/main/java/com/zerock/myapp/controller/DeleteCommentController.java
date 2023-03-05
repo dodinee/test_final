@@ -21,17 +21,13 @@ public class DeleteCommentController extends HttpServlet {
 
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-		String current = req.getParameter("current");
-		
-		int commentCd = Integer.parseInt(req.getParameter("commentCd"));
+		int commentCd = Integer.parseInt(req.getParameter("targetCd"));
 
 		try {
 
 			CommentService service = new CommentService();
  
 			service.deleteComment(commentCd);
-
-			res.sendRedirect(current);
 
 		} catch (NamingException e) {
 			

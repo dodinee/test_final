@@ -38,51 +38,50 @@ $(() => { /* 삭제 관련 */
 		/* 댓글 삭제 post 전송 */
 		$(".del").click(function(){
 		
-		$.ajax({
-			url : "/DeleteComment",
-			type : "POST",
-			data : 
-			{
-				targetCd : $(".delcontainer").children("#targetCd")
-			},
-		
-			success : function(data){
-				alert("댓글이 삭제되었습니다.");
-				location.reload();
-			},
-			error : function(){
-		 		alert("댓글 삭제  오류남");  /* 나중에 고쳐  */
-			}
+			$.ajax({
+				url : "/DeleteComment",
+				type : "POST",
+				data : 
+				{
+					targetCd : $(this).siblings("#targetCd").val()
+				},
+				success : function(data){
+					
+					alert("댓글이 삭제되었습니다.");
+				},
+				error : function(){
+		 			alert("댓글 삭제  오류남");  /* 나중에 고쳐  */
+				}
+			});
 		});
 	});
 	
 	$(".deleteRv").click(function() {
+		
 		
 		deleteModal();
 		
 		
 		$(".del").click(function(){
 		
-		$.ajax({
-			url : "/DeleteReview",
-			type : "POST",
-			data : 
-			{
-				targetCd : $(".delcontainer").children("#targetCd")
-			},
+			$.ajax({
+				url : "/Delete",
+				type : "POST",
+				data : 
+				{	
+					targetGb : $(this).siblings("#targetGb").val(),
+					targetCd : $(this).siblings("#targetCd").val()
+				},
 		
-			success : function(data){
-				alert("글이 정상적으로 삭제되었습니다.");
-				location.reload();
-			},
-			error : function(){
-		 		alert("삭제  오류남");  /* 나중에 고쳐  */
-			}
+				success : function(data){
+					alert("글이 삭제되었습니다.");
+					location.reload();
+				},
+				error : function(){
+		 			alert("글 삭제  오류남");  /* 나중에 고쳐  */
+				}
+			});
+		
 		});
-		
 	});
-	
-	
-	});
-	
 });

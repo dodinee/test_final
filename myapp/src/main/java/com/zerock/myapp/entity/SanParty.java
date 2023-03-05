@@ -2,16 +2,10 @@ package com.zerock.myapp.entity;
 
 import java.sql.Timestamp;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class SanParty {
 	
 	private int sanPartyCd;
@@ -28,5 +22,6 @@ public class SanParty {
 	private String Condition;
 	private	int likeCnt;
 	private int UserCnt;
+	private String img;
 
 }// end class

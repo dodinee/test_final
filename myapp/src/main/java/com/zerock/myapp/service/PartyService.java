@@ -37,7 +37,7 @@ public class PartyService{
 	public SanParty getParty(int id) throws ClassNotFoundException {
 		
 		
-		String sql = "SELECT * FROM san_party_v WHERE san_party_cd=?";
+		String sql = "SELECT * FROM san_party_v WHERE party_cd=?";
 		SanParty party = new SanParty();
 
 		try {
@@ -67,7 +67,7 @@ public class PartyService{
 			party.setCondition(rs.getString("condition"));
 			party.setLikeCnt(rs.getInt("like_cnt"));
 			party.setUserCnt(rs.getInt("user_cnt"));
-			
+//			party.setImg(rs.getString("img"));
 			
 			log.info(party);
 			
