@@ -20,9 +20,10 @@
 
 	<c:forEach items="${listC}" var="c">
 	
-			
+			<!-- 댓글 전체 컨테이너  -->
 			<div class="cmtcontainer">
-
+	
+				<!-- 멘션일 경우와 아닐경우 분리 -->
 				<c:choose>
 					<c:when test="${c.mentionCd == 0}">
 						<div class="comments">
@@ -32,6 +33,7 @@
 					</c:otherwise>
 				</c:choose>
 				
+				<!--  댓글 내부 (유저닉네임, 작성일, 수정/삭제/신고버튼, 내용, 답글버튼, 수정상태 시 수정/취소버튼)  -->
 				<div class="cmtuser">${c.nickname }</div>
 				<div class="cmtdate">
 					<fmt:formatDate pattern="MM-dd HH:mm" value="${c.createdDt}"></fmt:formatDate>
@@ -58,11 +60,11 @@
 		<!--  멘션 작성 폼 -->  
 		<c:if test="${c.mentionCd == 0}">
 			<!-- <div class="mentionwrite"> -->
-				<div class="cmtwrite" id="mentionwrite">
+				<div class="cmtwrite mentionwrite">
 					<input type="hidden" id="targetGb" name="targetGb" value="${targetGb}"/>
 					<input type="hidden" id="targetCd" name="targetCd" value="${targetCd }"/>
 					<input type="hidden" id= "targetComment" name="targetComment" value="${c.commentCd}">
-					<textarea  id="mcontents" name="contents" placeholder="답글을 작성해주세요." required></textarea>
+					<textarea  id="mcontents" class="mcontents" name="contents" placeholder="답글을 작성해주세요." required></textarea>
 					<input type="button" value="등록" class="insert men" disabled> 
 					<input type="button" value="취소" class="cancle">
 				</div>
@@ -70,6 +72,7 @@
 		</c:if>
 	</c:forEach>
 	
+	<!-- 새로운 댓글 작성 폼  -->
 	<div class="cmtwrite" id="cmtwrite">
 	
 		<input type="hidden" id="targetGb" name="targetGb" value="${targetGb}"/>

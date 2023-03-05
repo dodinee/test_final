@@ -1,0 +1,734 @@
+
+
+
+
+
+
+ 
+ 
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>We Go - 메인페이지</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="등산멤버 모집 커뮤니티" />
+    <link rel="shortcut icon" href="./ico/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./ico/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/header/css/header.css" type="text/css" />
+    <script src="header/js/header.js" type="text/javascript" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
+  </head>
+  <body>
+      <!-- Top Menu -->
+      <header>
+        <div class="logoDiv">
+          <a class="logo" href="./header.html">
+            <h1 class="blind">We Go</h1>
+          </a>
+        </div>
+        <div>
+          <nav>
+            <ul class="navbar">
+              <li><a href="#">산정보</a></li>
+              <li><a href="#">등산후기</a></li>
+              <li><a href="#">랭킹</a></li>
+              <li><a href="#">모집</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="user">
+          <!-- 로그인 상태 => 현재 display: none; 상태 -->
+          <img id="userImg" class="user-profile-img" src="https://picsum.photos/id/684/600/400" alt="회원 프로필 이미지" />
+          <!-- 비로그인 상태 -->
+          <button class="login-btn"></button>
+          <div class="menubar">
+            <ul>
+              <li><a href="../mypage/mypage.html">마이페이지</a></li>
+              <li><a href="#">알림</a></li>
+              <li><a href="#">문의하기</a></li>
+              <li class="text-red"><a href="#">로그아웃</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="search-bar">
+          <form action="#" method="get">
+            <button class="search-icon" type="submit"></button>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              value=""
+              placeholder="Search"
+            />
+            <button class="cancel" type="reset"></button>
+          </form>
+        </div>
+      </header>
+    </div>
+  </body>
+</html>
+
+
+
+    
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<script src="report/js/report.js?ver=1" type="text/javascript" defer></script>
+	<link rel="stylesheet" href="report/css/report.css?ver=1" type="text/css" />
+    <title>Report2222</title>
+    
+  </head>
+  <body>
+
+	<div class="mdcontainer">
+	<input type="hidden" name="targetGb" value="SAN_PARTY"/>
+	<input type="hidden" name="targetCd" value="2"/>
+	
+			<ul class="reasons">
+			
+				<li class="mdtitle">신고 사유 선택</li>
+				
+				<li class="check">
+					<input type="radio" name="check" value="스팸" id="r1" />
+					<label for="r1" class="reason">스팸 / 홍보글 입니다.</label> <span>✓</span>
+				</li>
+				
+				<li class="check">
+					<input type="radio" name="check" value="불법" id="r2" /> 
+					<label for="r2" class="reason">불법 정보를 포함하고 있습니다.</label> <span>✓</span>
+				</li>
+				
+				<li class="check">
+					<input type="radio" name="check" value="음란물" id="r3" /> 
+					<label for="r3" class="reason">음란물 / 청소년에게 유해한 내용입니다.</label><span>✓</span>
+				</li>
+				
+				<li class="check">
+					<input type="radio" name="check" value="혐오" id="r4" /> 
+					<label for="r4" class="reason">욕설 / 생명경시 / 혐오 표현입니다.</label> <span>✓</span>
+				</li>
+				
+				<li class="check">
+					<input type="radio" name="check" value="개인정보" id="r5" /> 
+					<label for="r5" class="reason">개인정보 노출 게시물입니다.</label><span>✓</span>
+				</li>
+				
+				<li>
+					<div class="btn">
+						<button type="button" class="mdcancle" value="cancle">취소</button>
+						<button type="button" class="mdreport" value="report">신고</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+</html>
+     
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="delete/js/delete.js?ver=1" type="text/javascript" defer></script>
+<link rel="stylesheet" href="delete/css/delete.css?ver=1" type="text/css" />
+<title>DeleteModal</title>
+
+</head>
+<body>
+	<div class="delcontainer">
+		<input type="hidden" id="targetGb" name="targetGb" value="SAN_PARTY">
+		<input type="hidden" id="targetCd" name="targetCd" value="2">
+		<div class="delment">삭제하시겠습니까?</div>
+		<input type="button" class="delcancle" value="취소" /> 
+		<input type="button" class="del" name="del" value="삭제" />
+	</div>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="join/js/join.js?ver=1" type="text/javascript" defer></script>
+<link rel="stylesheet" href="join/css/join.css?ver=1" type="text/css" />
+<title>JoinModal</title>
+
+</head>
+<body>
+	<div class="joinModal">
+		<input type="button" class="clsbtn" value="⤬"/>
+		<img
+			src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Golde33443.jpg/560px-Golde33443.jpg" 
+			alt="" class="" /><!-- 바꿔야됨  -->
+		<div class="sanName">한라산</div>
+		<ul class="joinInfo">
+			<li>날짜 : 2023년 02월 23일 (목)</li>
+			<li>시간 : 오후 22시 22분</li>
+			
+			<li>준비물 : 지게와 꽃가마</li>
+			
+			
+			<li>등반조건 : 나 업을수 있어야됨</li>
+			
+		</ul>
+		<div style="color: rgba(79, 197, 61, 1); font-size: 14px; margin-top: 15px;">참가하시겠습니까?</div>
+		<input type="button" class="joinbtn" value="참여하기"/>
+	</div>
+</body>
+</html>
+ 
+
+ 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PartyDetail</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<script src="/header/js/header.js" type="text/javascript" defer></script>
+<script src="/review-detail/js/default.js?ver=1" type="text/javascript" defer></script>
+<script src="/party-detail/js/party-detail.js?ver=1" type="text/javascript" defer></script>
+<script src="/like/js/like.js?ver=1" type="text/javascript" defer></script>
+
+<link rel="stylesheet" href="/header/css/default.css" type="text/css" />
+<link rel="stylesheet" href="/header/css/header.css" type="text/css" />
+<link rel="stylesheet" href="/like/css/like.css" type="text/css" />
+<link rel="stylesheet" href="/party-detail/css/party-detail.css?ver=1" type="text/css" />
+
+
+</head>
+
+
+<body>
+
+<!--  게시글 컨테이너  !-->
+	<div class="container">
+		
+		
+		<div class="header">
+			<!--  산 이름  -->
+			<div class="mnt">🌱 한라산 🌱</div> 
+			<!-- 글 제목 --> 
+			<div class="title">나랑 한라산 갈 송인ㄱ 구함</div> 
+			<!--  작성일  -->
+			<div class="dt"> 
+				2023년 2월 18일 02:47
+			</div>
+		</div>
+		
+		<div class="contents">
+			<!-- 유저 정보  -->
+			<img
+				src="data:image/jpeg;base64,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"
+				alt="" class="userpic" /> <!-- 바꿔야됨 --> 
+			<div class="username">소진이</div>
+			<!--  좋아요 버튼  -->
+			<div class="likeCnt">
+				<input class= "like" type="button" value=""/>1
+			</div>
+			<!--  글 사진  -->
+			<img
+				
+				src="	https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Golde33443.jpg/560px-Golde33443.jpg"
+				alt="" class="partyImg" />
+			<!-- 모집 정보  -->
+			<div class="partyInfo">
+				<div class="info">
+					<span class="list">날짜</span>
+					<span>2023년 02월 23일 (목)</span>
+				</div>
+				<div class="info">
+					<span class="list">시간</span>
+					<span>오후 22시 22분</span>
+				</div>
+				<div class="info">
+					<span class="list">참여인원</span>
+					<span>2 / 2</span>
+				</div>
+				
+				<div class="info">
+					<span class="list">준비물</span>
+					<span>지게와 꽃가마</span>
+				</div>
+				
+				
+				<div class="info">
+					<span class="list">등반조건</span>
+					<span>나 업을수 있어야됨</span>
+				</div>
+				
+				<div class="info">
+					<span class="list">내용</span>
+				</div>
+			</div>
+			<!--  글 내용  -->
+			<div class="content">내용입니다</div>
+			<!--  수정, 삭제, 신고 버튼  -->
+			<div class="btns">
+				<input type="hidden" id= "targetParty" name="targetParty" value="2">
+				<input type="button" class="modifyRv" name="modifyRv" value="수정" /> 
+				<input type="button" class="deleteRv" name="deleteRv" value="삭제" /> 
+				<input type="button" class="reportRv" name="reportRv" value="신고" />
+			</div>
+			<input type="button" class="join" name="join" value="참여하기"/>
+		</div>
+		<!--  댓글 수  -->
+		<div class="cnt">댓글 (7)</div>
+	</div>
+	
+	
+		<!--   댓글 컨테이너   !-->
+	<div class = "container">
+       	
+       	<!--  댓글 목록  -->
+		<!--  새 댓글 작성 폼  -->
+		
+
+
+
+
+
+
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/comment/css/comment.css?ver=1" type="text/css" />
+<script src="/comment/js/comment.js?ver=1" type="text/javascript" defer></script>
+</head>
+<body>
+
+
+	
+	
+			<!-- 댓글 전체 컨테이너  -->
+			<div class="cmtcontainer">
+	
+				<!-- 멘션일 경우와 아닐경우 분리 -->
+				
+					
+						<div class="comments">
+					
+					
+				
+				
+				<!--  댓글 내부 (유저닉네임, 작성일, 수정/삭제/신고버튼, 내용, 답글버튼, 수정상태 시 수정/취소버튼)  -->
+				<div class="cmtuser">소진이</div>
+				<div class="cmtdate">
+					03-04 01:29
+				</div>
+				<div class="btns">
+					<input type="hidden" id= "targetComment" name="targetComment" value="292">
+					<input type="button" class="modifycmt" name="modifycmt" value="수정" /> 
+					<input type="button" class="deletecmt" name="deletecmt" value="삭제" /> 
+					<input type="button" class="reportcmt" name="reportcmt" value="신고" />
+				</div>
+				
+				<div class="comment">도도도도도도</div>
+				
+				<input type="button" class="mentionbtn" name="mentionbtn" value="↪ ︎답글" />
+				
+				<div class="updatebtn">
+					<input type="button" name="updatecls" value="취소" />
+					<input type="button" name="updatecmt" value="수정" />
+				</div>
+			</div>
+		</div>
+
+				
+		<!--  멘션 작성 폼 -->  
+		
+			<!-- <div class="mentionwrite"> -->
+				<div class="cmtwrite mentionwrite">
+					<input type="hidden" id="targetGb" name="targetGb" value="SAN_PARTY"/>
+					<input type="hidden" id="targetCd" name="targetCd" value="2"/>
+					<input type="hidden" id= "targetComment" name="targetComment" value="292">
+					<textarea  id="mcontents" class="mcontents" name="contents" placeholder="답글을 작성해주세요." required></textarea>
+					<input type="button" value="등록" class="insert men" disabled> 
+					<input type="button" value="취소" class="cancle">
+				</div>
+			<!-- </div> -->
+		
+	
+	
+			<!-- 댓글 전체 컨테이너  -->
+			<div class="cmtcontainer">
+	
+				<!-- 멘션일 경우와 아닐경우 분리 -->
+				
+					
+					
+						<div class="comments mention">
+					
+				
+				
+				<!--  댓글 내부 (유저닉네임, 작성일, 수정/삭제/신고버튼, 내용, 답글버튼, 수정상태 시 수정/취소버튼)  -->
+				<div class="cmtuser">소진이</div>
+				<div class="cmtdate">
+					03-05 02:25
+				</div>
+				<div class="btns">
+					<input type="hidden" id= "targetComment" name="targetComment" value="320">
+					<input type="button" class="modifycmt" name="modifycmt" value="수정" /> 
+					<input type="button" class="deletecmt" name="deletecmt" value="삭제" /> 
+					<input type="button" class="reportcmt" name="reportcmt" value="신고" />
+				</div>
+				
+				<div class="comment">뭐ㅗㄴ가 뭔가 스크롤이 이상해<div>이상해 이상해</div><div>먼가 이상해</div></div>
+				
+				<div class="updatebtn">
+					<input type="button" name="updatecls" value="취소" />
+					<input type="button" name="updatecmt" value="수정" />
+				</div>
+			</div>
+		</div>
+
+				
+		<!--  멘션 작성 폼 -->  
+		
+	
+	
+			<!-- 댓글 전체 컨테이너  -->
+			<div class="cmtcontainer">
+	
+				<!-- 멘션일 경우와 아닐경우 분리 -->
+				
+					
+						<div class="comments">
+					
+					
+				
+				
+				<!--  댓글 내부 (유저닉네임, 작성일, 수정/삭제/신고버튼, 내용, 답글버튼, 수정상태 시 수정/취소버튼)  -->
+				<div class="cmtuser">소진이</div>
+				<div class="cmtdate">
+					03-04 07:24
+				</div>
+				<div class="btns">
+					<input type="hidden" id= "targetComment" name="targetComment" value="309">
+					<input type="button" class="modifycmt" name="modifycmt" value="수정" /> 
+					<input type="button" class="deletecmt" name="deletecmt" value="삭제" /> 
+					<input type="button" class="reportcmt" name="reportcmt" value="신고" />
+				</div>
+				
+				<div class="comment">sadfdsafadsfdasfdsafdsafdsafdasfdsaf</div>
+				
+				<input type="button" class="mentionbtn" name="mentionbtn" value="↪ ︎답글" />
+				
+				<div class="updatebtn">
+					<input type="button" name="updatecls" value="취소" />
+					<input type="button" name="updatecmt" value="수정" />
+				</div>
+			</div>
+		</div>
+
+				
+		<!--  멘션 작성 폼 -->  
+		
+			<!-- <div class="mentionwrite"> -->
+				<div class="cmtwrite mentionwrite">
+					<input type="hidden" id="targetGb" name="targetGb" value="SAN_PARTY"/>
+					<input type="hidden" id="targetCd" name="targetCd" value="2"/>
+					<input type="hidden" id= "targetComment" name="targetComment" value="309">
+					<textarea  id="mcontents" class="mcontents" name="contents" placeholder="답글을 작성해주세요." required></textarea>
+					<input type="button" value="등록" class="insert men" disabled> 
+					<input type="button" value="취소" class="cancle">
+				</div>
+			<!-- </div> -->
+		
+	
+	
+			<!-- 댓글 전체 컨테이너  -->
+			<div class="cmtcontainer">
+	
+				<!-- 멘션일 경우와 아닐경우 분리 -->
+				
+					
+						<div class="comments">
+					
+					
+				
+				
+				<!--  댓글 내부 (유저닉네임, 작성일, 수정/삭제/신고버튼, 내용, 답글버튼, 수정상태 시 수정/취소버튼)  -->
+				<div class="cmtuser">소진이</div>
+				<div class="cmtdate">
+					03-04 07:24
+				</div>
+				<div class="btns">
+					<input type="hidden" id= "targetComment" name="targetComment" value="312">
+					<input type="button" class="modifycmt" name="modifycmt" value="수정" /> 
+					<input type="button" class="deletecmt" name="deletecmt" value="삭제" /> 
+					<input type="button" class="reportcmt" name="reportcmt" value="신고" />
+				</div>
+				
+				<div class="comment">dsaafdasfdsafsafsafdsa</div>
+				
+				<input type="button" class="mentionbtn" name="mentionbtn" value="↪ ︎답글" />
+				
+				<div class="updatebtn">
+					<input type="button" name="updatecls" value="취소" />
+					<input type="button" name="updatecmt" value="수정" />
+				</div>
+			</div>
+		</div>
+
+				
+		<!--  멘션 작성 폼 -->  
+		
+			<!-- <div class="mentionwrite"> -->
+				<div class="cmtwrite mentionwrite">
+					<input type="hidden" id="targetGb" name="targetGb" value="SAN_PARTY"/>
+					<input type="hidden" id="targetCd" name="targetCd" value="2"/>
+					<input type="hidden" id= "targetComment" name="targetComment" value="312">
+					<textarea  id="mcontents" class="mcontents" name="contents" placeholder="답글을 작성해주세요." required></textarea>
+					<input type="button" value="등록" class="insert men" disabled> 
+					<input type="button" value="취소" class="cancle">
+				</div>
+			<!-- </div> -->
+		
+	
+	
+			<!-- 댓글 전체 컨테이너  -->
+			<div class="cmtcontainer">
+	
+				<!-- 멘션일 경우와 아닐경우 분리 -->
+				
+					
+						<div class="comments">
+					
+					
+				
+				
+				<!--  댓글 내부 (유저닉네임, 작성일, 수정/삭제/신고버튼, 내용, 답글버튼, 수정상태 시 수정/취소버튼)  -->
+				<div class="cmtuser">소진이</div>
+				<div class="cmtdate">
+					03-04 07:27
+				</div>
+				<div class="btns">
+					<input type="hidden" id= "targetComment" name="targetComment" value="313">
+					<input type="button" class="modifycmt" name="modifycmt" value="수정" /> 
+					<input type="button" class="deletecmt" name="deletecmt" value="삭제" /> 
+					<input type="button" class="reportcmt" name="reportcmt" value="신고" />
+				</div>
+				
+				<div class="comment">sdddddddd</div>
+				
+				<input type="button" class="mentionbtn" name="mentionbtn" value="↪ ︎답글" />
+				
+				<div class="updatebtn">
+					<input type="button" name="updatecls" value="취소" />
+					<input type="button" name="updatecmt" value="수정" />
+				</div>
+			</div>
+		</div>
+
+				
+		<!--  멘션 작성 폼 -->  
+		
+			<!-- <div class="mentionwrite"> -->
+				<div class="cmtwrite mentionwrite">
+					<input type="hidden" id="targetGb" name="targetGb" value="SAN_PARTY"/>
+					<input type="hidden" id="targetCd" name="targetCd" value="2"/>
+					<input type="hidden" id= "targetComment" name="targetComment" value="313">
+					<textarea  id="mcontents" class="mcontents" name="contents" placeholder="답글을 작성해주세요." required></textarea>
+					<input type="button" value="등록" class="insert men" disabled> 
+					<input type="button" value="취소" class="cancle">
+				</div>
+			<!-- </div> -->
+		
+	
+	
+			<!-- 댓글 전체 컨테이너  -->
+			<div class="cmtcontainer">
+	
+				<!-- 멘션일 경우와 아닐경우 분리 -->
+				
+					
+						<div class="comments">
+					
+					
+				
+				
+				<!--  댓글 내부 (유저닉네임, 작성일, 수정/삭제/신고버튼, 내용, 답글버튼, 수정상태 시 수정/취소버튼)  -->
+				<div class="cmtuser">소진이</div>
+				<div class="cmtdate">
+					03-04 07:29
+				</div>
+				<div class="btns">
+					<input type="hidden" id= "targetComment" name="targetComment" value="316">
+					<input type="button" class="modifycmt" name="modifycmt" value="수정" /> 
+					<input type="button" class="deletecmt" name="deletecmt" value="삭제" /> 
+					<input type="button" class="reportcmt" name="reportcmt" value="신고" />
+				</div>
+				
+				<div class="comment">afdsafsafdsafdsaf</div>
+				
+				<input type="button" class="mentionbtn" name="mentionbtn" value="↪ ︎답글" />
+				
+				<div class="updatebtn">
+					<input type="button" name="updatecls" value="취소" />
+					<input type="button" name="updatecmt" value="수정" />
+				</div>
+			</div>
+		</div>
+
+				
+		<!--  멘션 작성 폼 -->  
+		
+			<!-- <div class="mentionwrite"> -->
+				<div class="cmtwrite mentionwrite">
+					<input type="hidden" id="targetGb" name="targetGb" value="SAN_PARTY"/>
+					<input type="hidden" id="targetCd" name="targetCd" value="2"/>
+					<input type="hidden" id= "targetComment" name="targetComment" value="316">
+					<textarea  id="mcontents" class="mcontents" name="contents" placeholder="답글을 작성해주세요." required></textarea>
+					<input type="button" value="등록" class="insert men" disabled> 
+					<input type="button" value="취소" class="cancle">
+				</div>
+			<!-- </div> -->
+		
+	
+	
+			<!-- 댓글 전체 컨테이너  -->
+			<div class="cmtcontainer">
+	
+				<!-- 멘션일 경우와 아닐경우 분리 -->
+				
+					
+						<div class="comments">
+					
+					
+				
+				
+				<!--  댓글 내부 (유저닉네임, 작성일, 수정/삭제/신고버튼, 내용, 답글버튼, 수정상태 시 수정/취소버튼)  -->
+				<div class="cmtuser">소진이</div>
+				<div class="cmtdate">
+					03-04 07:29
+				</div>
+				<div class="btns">
+					<input type="hidden" id= "targetComment" name="targetComment" value="317">
+					<input type="button" class="modifycmt" name="modifycmt" value="수정" /> 
+					<input type="button" class="deletecmt" name="deletecmt" value="삭제" /> 
+					<input type="button" class="reportcmt" name="reportcmt" value="신고" />
+				</div>
+				
+				<div class="comment">afdsafsafdsafdsaf</div>
+				
+				<input type="button" class="mentionbtn" name="mentionbtn" value="↪ ︎답글" />
+				
+				<div class="updatebtn">
+					<input type="button" name="updatecls" value="취소" />
+					<input type="button" name="updatecmt" value="수정" />
+				</div>
+			</div>
+		</div>
+
+				
+		<!--  멘션 작성 폼 -->  
+		
+			<!-- <div class="mentionwrite"> -->
+				<div class="cmtwrite mentionwrite">
+					<input type="hidden" id="targetGb" name="targetGb" value="SAN_PARTY"/>
+					<input type="hidden" id="targetCd" name="targetCd" value="2"/>
+					<input type="hidden" id= "targetComment" name="targetComment" value="317">
+					<textarea  id="mcontents" class="mcontents" name="contents" placeholder="답글을 작성해주세요." required></textarea>
+					<input type="button" value="등록" class="insert men" disabled> 
+					<input type="button" value="취소" class="cancle">
+				</div>
+			<!-- </div> -->
+		
+	
+	
+	<!-- 새로운 댓글 작성 폼  -->
+	<div class="cmtwrite" id="cmtwrite">
+	
+		<input type="hidden" id="targetGb" name="targetGb" value="SAN_PARTY"/>
+		<input type="hidden" id= "targetCd" name="targetCd" value="2"/>	
+		<textarea id = "contents" name="contents" placeholder="댓글을 작성해주세요." required></textarea>
+		<input type="button" value="등록" class="insert ncmt" disabled> 
+		<input type="button" value="취소" class="cancle">
+		
+	</div>
+</body>
+</html>
+	</div> 
+
+	<!-- 탑버튼이랑 댓글쓰기버튼  -->
+	<div class="to top">top</div> 
+	<div class="to cmt">cmt</div>
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Footer</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="footer/css/footer.css">
+  </head>
+  <body>
+    <!-- Footer -->
+    <footer>
+      <div class="footer">
+        <ul>
+          <li><a href="#">사이트 도움말</a></li>
+          <li><a href="#">사이트 이용약관</a></li>
+          <li>
+            <a href="#"><strong>개인정보취급방침</strong></a>
+          </li>
+          <li><a href="#">책임의 한계와 법적고지</a></li>
+          <li><a href="#">게시중단요청서비스</a></li>
+          <li><a href="#">고객센터</a></li>
+        </ul>
+        <address>
+          Copyright ©
+          <a href="http://wego.co.kr"><strong>Wego</strong></a>
+          All Rights Reserved.
+        </address>
+        <div class="support">
+          <span class="link-bar">
+            <a
+              href="https://www.figma.com/file/4Gfranq8Iqz4pSebwzUc1W/Final-project?node-id=0%3A1&t=UILOPhDRyS6LJiQW-1"
+              target="_blank"
+            ></a>
+            <a
+              href="https://github.com/KH-Q-peaker?tab=repositories"
+              target="_blank"
+            ></a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+</body>
+
+</html>
+
+
+

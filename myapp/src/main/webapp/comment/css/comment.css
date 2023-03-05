@@ -99,7 +99,7 @@
   grid-column: 2/-1;
 }
 
-#mentionwrite {
+.mentionwrite {
   /* display: none; */
   width: 83%;
   align-self: end;

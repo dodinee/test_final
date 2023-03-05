@@ -27,9 +27,11 @@
 <script src="/header/js/header.js" type="text/javascript" defer></script>
 <script src="/review-detail/js/default.js?ver=1" type="text/javascript" defer></script>
 <script src="/party-detail/js/party-detail.js?ver=1" type="text/javascript" defer></script>
+<script src="/like/js/like.js?ver=1" type="text/javascript" defer></script>
 
 <link rel="stylesheet" href="/header/css/default.css" type="text/css" />
 <link rel="stylesheet" href="/header/css/header.css" type="text/css" />
+<link rel="stylesheet" href="/like/css/like.css" type="text/css" />
 <link rel="stylesheet" href="/party-detail/css/party-detail.css?ver=1" type="text/css" />
 
 

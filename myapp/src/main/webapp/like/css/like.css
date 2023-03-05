@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.like{
+	background: url(/like/svg/like.svg);
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
+}
+.fill{
+	background: url(/like/svg/like-fill.svg);
+}

@@ -323,3 +323,5 @@ textarea[disabled] {
   background: url(../svg/cancle.svg);
   background-repeat: no-repeat;
 }
+
+ *:focus { outline:none; }
