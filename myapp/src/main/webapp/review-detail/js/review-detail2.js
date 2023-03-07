@@ -20,6 +20,7 @@ $(() => { /* 탑, 코멘트 버튼 스크롤 이벤트 */
 	$(".cmt").click(function() {
 	
 	 document.getElementById('cmtwrite').scrollIntoView({behavior : 'smooth'});
+	 document.getElementById('content').focus();
 	});
 	
 	$(".top").click(function() {
@@ -29,6 +30,33 @@ $(() => { /* 탑, 코멘트 버튼 스크롤 이벤트 */
 });
 
 
+$(() => { /* 글 수정  */
+	
+	$(".modifyRv").click(function() {
+		
+		$.ajax({
+			url : "",
+			type : "POST",
+			data : 
+			{
+				targetGb : $("input[name='targetGb']").val(),
+				targetCd : $("input[name='targetCd']").val(),
+				userCd : 2,/* 나중에 바꿔야됨  */
+				reportGb : $("input[name='check']:checked").val()
+			},
+			
+			success : function(data){
+				
+				alert("신고 접수가 완료되었습니다.");
+				location.reload();
+			},
+			error : function(){
+			 	alert("신고에서 오류남");  /* 나중에 고쳐  */
+			}
+		});
+	})	
+	
+})
 
 
 

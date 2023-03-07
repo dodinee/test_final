@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
+    <script src="./js/my2page.js" defer></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/my2page.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="page-wrapper" class="a00">
+        <div class="header-wrapper">
+            <header id="wep-header">
+                <div class="web-left-header">
+                    <a href="#"><img src="./imgs/logo.svg" alt=""></a>
+                </div>
+                <div class="web-center-header">
+                    <ul class="header-menu">
+                        <li class="web-center-header-item"><a href="#">산정보</a></li>
+                        <li class="web-center-header-item"><a href="#">등산후기</a></li>
+                        <li class="web-center-header-item"><a href="#">랭킹</a></li>
+                        <li class="web-center-header-item"><a href="#">모집</a></li>
+                    </ul>
+                </div>
+                <div class="web-right-header">
+                    <a href="#"><img src="./imgs/문의.png" alt=""></a>
+                    <a href="#"><img src="./imgs/로그아웃.png" alt=""></a>
+                </div>
+            </header>
+        </div>
+        <header id="main-header">
+            <div class="left-header">
+                <a href="#"><img src="./imgs/alarm.png" alt=""></a>
+            </div>
+            <div class="center-header">
+                <a href="#"><img src="./imgs/logo.png" alt=""></a>
+            </div>
+            <div class="right-header">
+                <a href="#"><img src="./imgs/berger (1).png" alt=""></a>
+                <!-- <ul class="header-aside">
+                    <a href="#">
+                        <li class="header-aside-item">로그인</li>
+                    </a><a href="#">
+                        <li class="header-aside-item">회원가입</li>
+                    </a><a href="#">
+                        <li class="header-aside-item">공지사항</li>
+                    </a>
+                </ul> -->
+            </div>
+        </header>
+        <div id="main-section" class="a11">
+            <div class="profile a111">
+                <img class="profile-image a1111" src="./imgs/profile.png" alt="">
+                <a class="profile-image-button a1112" href="#"><img src="./imgs/profileset.png" alt=""></a>
+            </div>
+            <div class="name-badge-setting a112">
+                <div class="div-name-setting a1121">
+                    <span class="nickname">닉네임</span>
+                    <a class="name-setting" href="#"><img src="./imgs/nickname.png" alt=""></a>
+                </div>
+                <!-- ==================== -->
+                <div class="badge-collection a1122">
+                    <div class="badge-header"><span>뱃지컬렉션</span>
+                        <a class="badge-setting" href="">
+                            <img src="./imgs/badgeset.png" alt=""></a>
+                    </div>
+                    <div class="badge-medal">
+                        <img src="./imgs/메달1.png" alt="">
+                        <img src="./imgs/메달2.png" alt="">
+                        <img src="./imgs/메달3.png" alt="">
+                        <img src="./imgs/메달4.png" alt="">
+                        <img src="./imgs/메달5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content-section" class="a12">
+            <header id="content-header" class="a121">
+                <ul class="content-header-menu">
+                    <li class="content-header-menu-item"><a href="#">등산 일정</a></li>
+                    <li class="content-header-menu-item"><a href="#">내 정보</a></li>
+                    <li class="content-header-menu-item"><a href="#">내가 쓴 글, 댓글</a></li>
+                    <li class="content-header-menu-item active"><a href="#">나의 좋아요</a></li>
+                </ul>
+            </header>
+        </div>
+        <div id="content-article" class="a13">
+            <div class="content-article1 a131">
+                <div class="content-header a1311">
+                    <h3>나의 위치 및 선호도</h3><img src="" alt="">
+                    <ion-icon name="location-outline"></ion-icon>
+                </div>
+                <div class="firstline a1312">
+                    <span>나의위치</span>
+                    <span id="address">경기도 과천시</span>
+                    <form action="#">
+                        <select name="sido1" id="sido1"></select>
+                        <select name="gugun1" id="gugun1"></select>
+                        <span class="save"><input type="submit" value="저장"></span>
+                    </form>
+                </div>
+                <div class="secondline a1313">
+                    <span>선호도</span>
+                    <span>시내</span>
+                    <span>도내</span>
+                    <span>전국</span>
+                </div>
+            </div>
+            <div class="content-article2 a132">
+                <div class="content-header a1321">
+                    <h3>나의 취향</h3><img src="" alt="">
+                </div>
+                <div class="san">
+                    <div class="a1322"><img src="./imgs/Rectangle 111.png" alt=""><span><ion-icon name="leaf-outline"></ion-icon> 가까운 산 <ion-icon name="leaf-outline"></ion-icon></span></div>
+                    <div class="a1323"><img src="./imgs/Rectangle 112.png" alt=""><span><ion-icon name="leaf-outline"></ion-icon> 어려운 산 <ion-icon name="leaf-outline"></ion-icon></span></div>
+                    <div class="a1324"><img src="./imgs/Rectangle 113.png" alt=""><span><ion-icon name="leaf-outline"></ion-icon> 인기많은 산 <ion-icon name="leaf-outline"></ion-icon></span></div>
+                </div>    
+            </div>
+            <div class="withdraw a133">
+                <span class="a1331">회원 탈퇴</span>
+            </div>
+
+        </div>
+    </div>
+    <div id="top-button">
+        <a href="#top"><img src="./imgs/맨위로.png" alt=""></a>
+    </div>
+    <div class="file-box">
+        <div class="header">
+            <img src="./imgs/file.png" alt="">
+            <span>Upload a photo</span>
+        </div>
+        <form action="#">
+            <div class="form-group file-upload" required="required">
+                <div class="form-control" data-message="Drag or Add">
+                    <input required="required" title="Click to select file or drag n drop it here" type="file"
+                        name="document[file]" id="document_file">
+                </div>
+            </div>
+            <input type="submit" class="filesend" value="변경">
+        </form>
+        <div><a href="#" class="closebutton"><ion-icon name="close-outline"></ion-icon></a></div>
+    </div>
+    <!-- <div class="file-upload">
+            <div class="header">
+                <img src="./imgs/file.png" alt="">
+                <span>Upload a photo</span>
+            </div>
+            <form action="#">
+                <div class="file">
+                    <h3>Drag or Add</h3>
+                    <div class="form-control" data-message="Click to select file or drag n drop it here">
+                        <input required="required" title="Click to select file or drag n drop it here" type="file"
+                        name="document[file]" id="document_file">
+                    </div>
+                </div>
+                <input type="submit" class="filesend" value="변경">
+            </form>
+            <div><a href="#" class="closebutton"><ion-icon name="close-outline"></ion-icon></a></div>
+        </div> -->
+    <div class="nickname-box">
+        <div class="header">
+            <span>사용할 닉네임을 입력해주세요</span>
+        </div>
+        <form action="#">
+            <div class="nickname-input">
+                <input type="text" placeholder="한라산 좋아요">
+                <span class="ion"><ion-icon name="checkmark-circle-outline"></ion-icon>
+                    <ion-icon name="close-circle-outline"></ion-icon></span>
+            </div>
+            <div class="bottom">
+                <span>사용 가능한 닉네임입니다.</span>
+            </div>
+            <input type="submit" class="nickname-send" value="변경">
+        </form>
+        <div><a href="#" class="closebutton2"><ion-icon name="close-outline"></ion-icon></a></div>
+    </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>

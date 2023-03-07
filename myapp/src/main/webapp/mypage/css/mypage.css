@@ -1,0 +1,27 @@
+.cotents {
+  overflow-x: auto;
+  height: max-content;
+  padding: 20px;
+  background-color: #ffffff;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+.contents > h2 {
+  text-align: center;
+}
+
+@media screen and (min-width: 750px) and (max-width: 1024px) {
+  .cotents {
+    min-height: max-content;
+    font-size: small;
+  }
+}
+/* 모바일일때  */
+@media screen and (min-width: 320px) and (max-width: 749px) {
+  .cotents {
+    margin: 0;
+    font-size: 13px;
+    min-height: max-content;
+  }
+}

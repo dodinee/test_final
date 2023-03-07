@@ -1,0 +1,32 @@
+.cotents {
+  width: 780px;
+  overflow-x: auto;
+  height: max-content;
+  padding: 20px;
+  background-color: #ffffff;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+
+.contents > h2 {
+  text-align: center;
+}
+
+@media screen and (min-width: 750px) and (max-width: 1050px) {
+  .cotents {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    min-height: max-content;
+    font-size: small;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 749px) {
+  .cotents {
+    margin: 0;
+    font-size: 13px;
+    min-height: max-content;
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+}

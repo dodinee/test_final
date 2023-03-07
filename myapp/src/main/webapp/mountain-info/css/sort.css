@@ -1,0 +1,25 @@
+div.select-sort {
+  display: inline-block;
+  float: right;  
+  margin-right: 3px
+}
+
+form.container {
+  margin: 0px;
+}
+
+select {
+  width: 150px;
+  padding: .8em .5em;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: medium;
+
+  background: url(../svg/arrow.svg) no-repeat 95% 50%;
+  background-size: 25px;
+  
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

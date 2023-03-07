@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>We Go - 메인페이지</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="등산멤버 모집 커뮤니티" />
+  <link rel="shortcut icon" href="./ico/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="./ico/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/footer.css" />
+  <link rel="stylesheet" href="./css/recuitSearch.css" />
+  <link rel="stylesheet" href="./css/scroll.css" />
+  <link rel="stylesheet" href="./css/sort.css" />
+  <script src="./js/header.js" defer></script>
+  <script src="./js/scroll.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js"></script>
+</head>
+
+<body>
+  <div class="total-wrap">
+
+    <!-- Top Menu -->
+    <header>
+      <div class="logoDiv">
+        <a class="logo" href="./header.html">
+          <h1 class="blind">We Go</h1>
+        </a>
+      </div>
+      <div>
+        <nav>
+          <ul class="navbar">
+            <li><a href="#">산정보</a></li>
+            <li><a href="#">등산후기</a></li>
+            <li><a href="#">랭킹</a></li>
+            <li><a href="#">모집</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="user">
+        <!-- 로그인 상태 => 현재 display: none; 상태 -->
+        <img id="userImg" class="user-profile-img" src="https://picsum.photos/id/684/600/400" alt="회원 프로필 이미지" />
+        <!-- 비로그인 상태 -->
+        <button class="login-btn"></button>
+        <div class="menubar">
+          <ul>
+            <li><a href="../mypage/mypage.html">마이페이지</a></li>
+            <li><a href="#">알림</a></li>
+            <li><a href="#">문의하기</a></li>
+            <li class="text-red"><a href="#">로그아웃</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="search-bar">
+        <form action="#" method="get">
+          <button class="search-icon" type="submit"></button>
+          <input type="text" name="search" id="search" value="" placeholder="Search" />
+          <button class="cancel" type="reset"></button>
+        </form>
+      </div>
+
+
+    </header>
+
+    <section>
+      <!-- Contents -->
+      <div class="container">
+
+        <div class="search-results">
+
+          <div class="result-line">
+            <div class="hr-sect">검색결과</div>
+          </div>
+
+          
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="top-info">
+              <div class="user-info">
+                <img src="./img/gray.png" alt="img" />
+                <span id="userName">작성자</span>
+              </div>
+              <span id="mountainName">산이름</span>
+            </div>
+            <hr />
+            <img src="./img/gray.png" alt="img" />
+            <div class="recruit-data">
+              <p id="title">제목</p>
+              <p>날짜 <span id="date">2023년 12월 15일</span></p>
+              <p>시간: <span id="time"></span></p>
+              <p>참여 인원: <span id="memberCount"></span></p>
+            </div>
+            <div class="bottom-info">
+              <form action="#" method="get">
+                <button type="submit" name="favorite" value="true" class="favorite"></button>
+                <span class="favorite-count">1000</span>
+              </form>
+              <span id="date">작성일자</span>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+  </section>
+
+
+
+  <!-- Footer Start -->
+  <footer>
+    <div class="footer">
+      <ul>
+        <li><a href="#">사이트 도움말</a></li>
+        <li><a href="#">사이트 이용약관</a></li>
+        <li>
+          <a href="#"><strong>개인정보취급방침</strong></a>
+        </li>
+        <li><a href="#">책임의 한계와 법적고지</a></li>
+        <li><a href="#">게시중단요청서비스</a></li>
+        <li><a href="#">고객센터</a></li>
+      </ul>
+      <address>
+        Copyright ©
+        <a href="http://wego.co.kr"><strong>Wego</strong></a>
+        All Rights Reserved.
+      </address>
+      <!-- 끝에 우리 아이콘바로가기 키워드 만들기 -->
+      <div class="support">
+        <span class="link-bar">
+          <a href="https://www.figma.com/file/4Gfranq8Iqz4pSebwzUc1W/Final-project?node-id=0%3A1&t=UILOPhDRyS6LJiQW-1"
+            target="_blank"></a>
+          <a href="https://github.com/KH-Q-peaker?tab=repositories" target="_blank"></a>
+        </span>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+</body>
+
+</html>

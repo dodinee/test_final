@@ -9,11 +9,13 @@
 	margin: 0 auto;
 	flex-direction: column;
 	justify-content: center;
+	box-sizing: border-box;
 }
 
 /* 제목 부분 */
 .header {
-	height: 150px;
+	height: auto;
+	min-height: 200px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -24,18 +26,20 @@
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 5px 5px
 		rgba(0, 0, 0, 0.22);
 	border: 0;
-	border-radius: 10px;
 }
 
 .mnt {
-	font-size: 18px;
+	font-size: 20px;
 }
 
 .title {
-	font-size: 25px;
+	font-size: 32px;
 	padding: 0 15px;
 }
-
+.dt{
+	font-size: 15px;
+	
+}
 /* 글 본문 */
 .contents {
 	display: grid;
@@ -82,15 +86,20 @@
 .content {
 	grid-row: 2;
 	grid-column: 1/5;
-	padding: 20px 30px;;
-	align-self: flex-start
+	padding: 20px 30px;
+	align-self: flex-start;
+	font-size: 15px;
+	
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 	/* 글 본문 */
 	.contents {
 		grid-template-columns: 50px minmax(100px, auto) 0 100px;
 		grid-template-rows: 50px minmax(100px, auto) 30px;
 		padding: 10px;
+	}
+	.header > .title{
+		font-size: 25px;
 	}
 }
 

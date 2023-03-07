@@ -3,7 +3,10 @@
 /* 신고 모달창 on  */
 let reportModal = function(){
 	
-
+		const backdrop = document.createElement('div');
+		backdrop.classList.add('modalbackground');
+		document.body.appendChild(backdrop);
+	
 		$(".mdcontainer").show('normal').css('display', 'flex');/* on */
 
 		$('input[name=check]').prop('checked', false); /* 체크 초기화 */
@@ -11,6 +14,7 @@ let reportModal = function(){
 		$(document).mouseup(function (e){ /* 외부 영역 클릭 시 닫기 */
 			if($(".mdcontainer").has(e.target).length === 0){
 				$(".mdcontainer").hide('fast');
+				backdrop.remove();
 			}
 		});
 		$(document).keydown(function(e){/* esc입력시 닫기 */
@@ -18,11 +22,13 @@ let reportModal = function(){
  
    			if (code == 27) { // 27은 ESC 키번호
        			$(".mdcontainer").hide('fast');
+				backdrop.remove();
  			}
 		});
 		
 		$(".mdcancle").click(function() {
 			$(".mdcontainer").hide('fast');
+			backdrop.remove();
 		});
 };
 

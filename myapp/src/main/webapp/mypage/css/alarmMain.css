@@ -1,0 +1,326 @@
+
+body{
+    width: 100vw;
+    background-color: #fff;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#pagewrapper {
+    display: inline-block;
+    width: 1024px;
+    margin: 0 auto;
+    height:1600px;
+    align-items: center;
+    text-align: center;
+    background: #FFFFFF;
+}
+header{
+    position: fixed;
+}
+#wep-header{
+    display: none;
+    opacity: 0;
+}
+#main-header {
+    position: relative;
+    width: 1024px;
+    height: 94px;
+    flex: auto;
+    flex-wrap: wrap;
+    top: 0px;
+    background: rgba(231, 231, 231, 0.5);
+}
+.left-header{
+    position: absolute;
+    flex: auto;
+    flex-wrap: wrap;
+    left: 4.39%;
+    right: 87.79%;
+    top: 10%;
+    bottom: 93.63%;
+}
+.center-header{
+    position: absolute;
+    flex: auto;
+    flex-wrap: wrap;
+    left: 45.9%;
+    right: 45.8%;
+    top: 5%;
+    bottom: 93.63%;
+}
+.right-header{
+    position: absolute;
+    flex: auto;
+    flex-wrap: wrap;
+    left: 87.89%;
+    right: 4.79%;
+    top: 22%;
+    bottom: 95.02%;
+}
+#alarmHeader{
+    position: relative;
+    width: 100%;
+    margin-top: 0px;
+    padding: 0px;
+    height: 94px;
+    background-color: #34A853;
+}
+#alarmHeader .text{
+    position: absolute;
+    left: 30px;
+    line-height: 94px;
+    font-size: 1.7em;
+    color: #fff;
+}
+#alarmHeader .img{
+    position: absolute;
+    right: 30px;
+    line-height: 94px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#alarmHeader img{
+    position: relative;
+    top: 15px;
+}
+
+.alarm.first{
+    margin-top: 60px;
+}
+.alarm {
+    display: inline-block;
+    width: 85%;
+    background-color: #D9D9D9;
+    margin: 15px 0px;
+    padding: 5px;
+    padding-bottom: 20px;
+    border-radius: 30px;
+}
+
+.alarm div{
+    display: inline-block;
+    background-color: #fff;
+    width: 93%;
+    text-align: left;
+    border-radius: 20px;
+    padding: 5px 20px;
+    line-height: auto;
+}
+.message.profile {
+    height: 90px;
+    line-height: 90px;
+}
+p {
+    display: inline;
+    white-space:pre-line;
+    word-break: break-all;
+}
+.message.profile img{
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    top:20px;
+    margin-right: 20px;
+}
+.message.mozip {
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+}
+.message.badge{
+    height: 90px;
+}
+.message.badge img{
+    width: auto;
+    height: auto;
+    position: absolute;
+    display: inline;
+    margin-right: 5px;
+}
+.message.badge p{
+    position: relative;
+    left: 100px;
+}
+.alarm h3{
+    font-size: 1.5em;
+    margin-bottom: 0px;
+    float: left;
+}
+.alarm.mozip .attention{
+    position: relative;
+    left:13%;
+    margin-top: 20px;
+}
+.alarm h3,h5{
+    text-align: left;
+    padding-left: 30px;
+}
+.alarm h5{
+    display: block;
+    color: #999999;
+    margin-top: 0px;
+}
+.message.badge p{
+    display: inline;
+    position: relative;
+    top: 20px;
+}
+@media (min-width: 750px) {
+    #main-header {
+        display: none;
+        opacity: 0;
+    }
+    .left-header{
+        display: none;
+        opacity: 0;
+    }
+    .center-header{
+        display: none;
+        opacity: 0;
+    }
+    .right-header{
+        display: none;
+        opacity: 0;
+    }
+    #pagewrapper {
+        display: inline-block;
+        position: relative;
+        flex: auto;
+        flex-wrap: wrap;
+        width: 1600px;
+        height:1500px;
+        align-items: center;
+        background: #FFFFFF;
+    }
+    /* .header-wrapper{
+        display: inline-block;
+        margin: 0 auto;
+        width: 1600px;
+        height: 94px;
+    } */
+    #wep-header{
+        display: inline-block;
+        position: relative;
+        opacity: 1;
+        width: 1600px;
+        height: 120px;
+        margin-bottom: 0px;
+        background: #DCEDC3;
+        border-bottom: 3px solid #DCEDC3;
+    }
+    .web-left-header{
+        position: absolute;
+        flex: auto;
+        flex-wrap: wrap;
+        left: 15px;
+        top: 15px;
+        padding: 10px;
+    }
+    .web-center-header{
+        position: absolute;
+        left: 20%;
+        flex: auto;
+        top: 15px;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    .web-right-header{
+        position: absolute;
+        display: inline-flex;
+        margin-right: 30px;
+        align-items: center;
+        width: 140px;
+        height: 120px;
+        line-height:120px;
+        flex: auto;
+        flex-wrap: wrap;
+        right: 0%;
+        justify-content: space-between;
+    }
+    .web-right-header a{
+        display: inline-block;
+        height: 50px;
+        align-items: center;
+        line-height:50px;
+    }
+    .web-right-header img{
+        display: inline-block;
+        height: 50px;
+        align-items: center;
+        line-height:50px;
+    }
+    .web-center-header>a{
+        text-decoration: none;
+    }
+    .web-center-header header-menu{
+        display: inline-block;
+        margin: 0 auto;
+        width: 700px;
+        height: 120px;
+        line-height: 120px;
+        background: rgba(231, 231, 231, 0.21);
+        border-radius: 15px;
+        align-items: center;
+        text-align: center;
+    }
+    .web-center-header-item {
+            display: inline-block;
+            color: rgb(86, 86, 86);
+            width:170px;
+            height: 35px;
+            margin: 0px 15px;
+            line-height: 30px;
+            font-family: 'Inter';
+            font-size: 1.8em;
+            font-style: normal;
+            font-weight: 600;
+            align-items: center;
+            text-align: center;
+    }
+    .web-center-header-item a{
+        text-decoration: none;
+        color: black;
+    }
+    .header-wrapper{
+        margin: 0px;
+        height: 122px;
+    }
+    #alarmHeader{
+        position: relative;
+        width: 100%;
+        margin-top: 0px;
+        padding: 0px;
+        height: 120px;
+        background-color: #34A853;
+    }
+    #alarmHeader .text{
+        position: absolute;
+        left: 30px;
+        line-height: 120px;
+        font-size: 1.7em;
+        color: #fff;
+    }
+    #alarmHeader .img{
+        position: absolute;
+        right: 30px;
+        line-height: 120px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #alarmHeader img{
+        position: relative;
+        top: 10px;
+    }
+    .alarm h3,h5{
+    text-align: left;
+    padding-left: 55px;
+}
+.alarm.mozip .attention{
+    position: relative;
+    left:24%;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+}

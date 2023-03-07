@@ -161,29 +161,29 @@ $(() => { /* 수정 관련 */
 			target.toggleClass("update", false);
 		
 		});
-	});
 	
-	/* 수정 post전송  */
-	/* 아수정 됐는데 오류났다고 뜸 ㅋㅋㅋㅋㅋㅋ????왜지?????... 해결... */
-	/* 문제2 : 한번에 하나만 눌리게 해야함..그래야할듯...  */
-	$("input[name='updatecmt']").click(function() {
+		/* 수정 post전송  */
+		/* 아수정 됐는데 오류났다고 뜸 ㅋㅋㅋㅋㅋㅋ????왜지?????... 해결... */
+		/* 문제2 : 한번에 하나만 눌리게 해야함..그래야할듯...  */
+		$("input[name='updatecmt']").click(function() {
 
-		$.ajax({
-			url : "/UpdateComment",
-			type : "POST",
-			data : 
-			{
-				commentCd : commentCd,
-				userCd : 2,// 수정해야됨 
-				contents : $(this).parent().siblings(".comment").html()
-			},
-			success : function(data){
-				alert("댓글 수정이 완료되었습니다.");
-				location.reload();
-			},
-			error : function(){
-		 		alert("댓글수정  오류남");  /* 나중에 고쳐  */
-			}	
+			$.ajax({
+				url : "/UpdateComment",
+				type : "POST",
+				data : 
+				{
+					commentCd : commentCd,
+					userCd : 2,// 수정해야됨 
+					contents : $(this).parent().siblings(".comment").html()
+				},
+				success : function(data){
+					alert("댓글 수정이 완료되었습니다.");
+					location.reload();
+				},
+				error : function(){
+			 		alert("댓글수정  오류남");  /* 나중에 고쳐  */
+				}	
+			});
 		});
 	});
 });

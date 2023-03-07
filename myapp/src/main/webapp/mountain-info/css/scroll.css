@@ -1,0 +1,56 @@
+
+.scrollToTop {
+  width: 50px;
+  height: 50x;
+  z-index: 5;
+
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  display: none;
+}
+
+
+/* .scrollToTop {
+  width: 50px;
+  height: 50x;
+  z-index: 5;
+
+  position: fixed;
+  right: 5%;
+  bottom: 12%;
+  display: none;
+}
+
+.add-item {
+  width: 50px;
+  height: 50x;
+  z-index: 5;
+
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  display: none;
+} */
+
+/* .scrollToTop {
+  width: 50px;
+  height: 50x;
+  z-index: 5;
+
+  position: fixed;
+  right: 5%;
+  bottom: 12%;
+  display: none;
+}
+
+.chat {
+  width: 50px;
+  height: 50x;
+  z-index: 5;
+
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  display: none;
+} */
