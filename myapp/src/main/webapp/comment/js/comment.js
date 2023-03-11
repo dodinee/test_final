@@ -66,10 +66,10 @@ $(() => { /* 답글 관련 */
 				'background' : 'buttonface' 
 		});
 		
-    	if ($(this).parent().parent().next().css("display") == "none") {
+    	if ($(this).parent().next().css("display") == "none") {
 	    	
 			$(this).val("☓ 닫기");
-	    	$(this).parent().parent().next().show('normal');
+	    	$(this).parent().next().show('normal');
     	}
   	});
   	/* 취소 클릭 시 멘션 작성 창 off  */
@@ -131,7 +131,7 @@ $(() => { /* 수정 관련 */
 		
 		let commentCd = $(this).parent().children('input[name=targetComment]').val();
 		let target = $(this).parent().next();
-		let ddd = target.html();
+		let contents = target.html();
 
 		/* 댓글 수정 폼 on */
 		target.siblings(".btns").hide('fast');
@@ -150,21 +150,21 @@ $(() => { /* 수정 관련 */
 			
 			let target = $(this).parent().siblings(".comment");
 
-			/* 취소 눌렀을 때 원래 내용으로 되돌아가야되는데 어떻게함....해결 .. 다시 안해결 ..*/
+			/* 취소 눌렀을 때 원래 내용으로 되돌아가야되는데 어떻게함....해결 .. 다시 안해결 ..다시 해결..*/
 //			수정버튼이 하나씩만 눌려야됨 댓글 수정중일 때 다른 수정버튼은 비활성화 돼야 됨 ... 해ㅑ결
 			/* 멘션이면 답글달기 안생겨야되는데 어캄  ... 해결 */
 			target.siblings(".btns").show('fast');	
 			target.siblings(".mentionbtn").show('fast');
 			target.siblings(".updatebtn").hide('fast');
 			target.removeAttr('contenteditable');
-			target.html(ddd);
+			target.html(contents);
 			target.toggleClass("update", false);
 		
 		});
 	
 		/* 수정 post전송  */
 		/* 아수정 됐는데 오류났다고 뜸 ㅋㅋㅋㅋㅋㅋ????왜지?????... 해결... */
-		/* 문제2 : 한번에 하나만 눌리게 해야함..그래야할듯...  */
+		/* 문제2 : 한번에 하나만 눌리게 해야함..그래야할듯... 그래 해결...*/
 		$("input[name='updatecmt']").click(function() {
 
 			$.ajax({

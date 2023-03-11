@@ -1,14 +1,16 @@
 footer {
   width: 100vw;
   background-color: #43a047;
+  margin-top: 100px;
 }
 .footer {
-  min-width: 320px;
+  min-width: 375px;
   max-width: 1024px;
   text-align: center;
   padding: 30px;
   position: relative;
   margin: auto;
+  box-sizing: border-box;
 }
 .footer li {
   position: relative;
@@ -60,7 +62,10 @@ footer {
   background: url(../svg/github.svg);
   background-repeat: no-repeat;
 }
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
+  footer{
+    margin-top: 45px;
+  }
   .footer {
     text-align: center;
     padding: 30px 10px;

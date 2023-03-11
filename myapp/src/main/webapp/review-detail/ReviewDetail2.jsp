@@ -32,7 +32,7 @@
 
 <link rel="stylesheet" href="/header/css/default.css?ver=1"
 	type="text/css" />
-<link rel="stylesheet" href="/header/css/header.css" type="text/css" />
+<link rel="stylesheet" href="/header/css/header.css?ver=1" type="text/css" />
 <link rel="stylesheet" href="/review-detail/css/reviewDetail.css?ver=1"
 	type="text/css" />
 <link rel="stylesheet" href="/like/css/like.css?ver=1" type="text/css" />
@@ -51,14 +51,11 @@
 		<!-- 		<input type="hidden" id= "targetGb" name="targetGb" value="SAN_REVIEW"/> -->
 		<%-- 		<input type="button" id= "targetCd" name="targetCd" value="${r.sanReviewCd}"/> --%>
 		<!-- 		<input type="hidden" id= "current" name="current" value=""/> -->
-		<header>
-			<jsp:include page="../header/header.html"></jsp:include><%-- 헤더 --%>
-		</header>
 
+		<jsp:include page="/header/header.html"></jsp:include><%-- 헤더 --%>
 		<section>
 			<!--  게시글 컨테이너  !-->
-			<div class="container">
-				<div class="header">
+				<div class="rheader">
 					<div class="mnt">🌱 ${r.sanName} 🌱</div>
 					<%-- 산이름 --%>
 					<div class="title">️${r.title}</div>
@@ -79,35 +76,28 @@
 					</div>
 					<div class="content">${r.contents}</div>
 					<div class="btns">
-						<%-- 				<input type="hidden" id= "targetReview" name="targetReview" value="${r.sanReviewCd}"> --%>
-						<!-- <input type="button" class="modifyRv" name="modifyRv" value="수정" /> -->
-						<a href="/write/write.html">임시작성폼 </a> <a
-							href="/review-write/review-write.html">임시작성폼 </a> <input
-							type="button" class="deleteRv" name="deleteRv" value="삭제" /> <input
-							type="button" class="reportRv" name="reportRv" value="신고" />
+						<%-- 	<input type="hidden" id= "targetReview" name="targetReview" value="${r.sanReviewCd}"> --%>
+						<input type="button" class="modifyRv" name="modifyRv" value="수정" />
+						<input type="button" class="deleteRv" name="deleteRv" value="삭제" />
+						<input type="button" class="reportRv" name="reportRv" value="신고" />
 					</div>
 				</div>
 
 				<div class="cnt">댓글 (${listC.size()})</div>
-			</div>
 
 
 			<!--   댓글 컨테이너   !-->
-			<div class="container">
 				<c:set var="listC" value="${listC}" />
 				<!--  댓글 목록  -->
 				<!--  새 댓글 작성 폼  -->
 				<jsp:include page="../comment/comment.jsp" />
-			</div>
 
 			<!-- 탑버튼이랑 댓글쓰기버튼  -->
 			<div class="to top">top</div>
 			<div class="to cmt">cmt</div>
 		</section>
 
-		<footer>
-			<jsp:include page="../footer/footer.html"></jsp:include>
-		</footer>
+		<jsp:include page="/footer/footer.html"></jsp:include>
 	</div>
 </body>
 </html>

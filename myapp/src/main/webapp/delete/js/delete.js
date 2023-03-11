@@ -55,6 +55,7 @@ $(() => { /* 삭제 관련 */
 				success : function(data){
 					
 					alert("댓글이 삭제되었습니다.");
+					location.reload();
 				},
 				error : function(){
 		 			alert("댓글 삭제  오류남");  /* 나중에 고쳐  */
@@ -82,7 +83,7 @@ $(() => { /* 삭제 관련 */
 		
 				success : function(data){
 					alert("글이 삭제되었습니다.");
-					location.reload();
+					location.reload(); // 이거 목록페이지로 넘어가게해야됨 
 				},
 				error : function(){
 		 			alert("글 삭제  오류남");  /* 나중에 고쳐  */

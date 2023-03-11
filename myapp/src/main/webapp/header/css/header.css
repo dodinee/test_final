@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /* common */
 body {
   margin: 0px;
@@ -7,36 +9,66 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 a {
   text-decoration: none;
 }
+
 a:link,
 a:visited,
 a:active,
 a:hover {
   color: #000;
 }
+
 ul {
   padding: 0;
 }
+
 li {
   list-style: none;
 }
+.total-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+
+  min-width: 375px;
+  max-width: 1024px;
+}
+section {
+  width: 96%;
+}
+
 .blind {
   display: none;
 }
+
 /* header */
 header {
   width: 100%;
-  height: 100px;
+
+  margin-bottom: 32px;
+}
+
+.header {
   display: flex;
+  position: relative;
+
   justify-content: space-around;
   align-items: center;
-  background-color: #e7e7e7;
-  position: relative;
+
+
+  height: 100px;
+
   background-color: #DEEDCB;
 }
-header div.logoDiv,div.user {
+
+.header div.logoDiv,
+div.user {
   width: 180px;
 }
 
@@ -51,12 +83,14 @@ header div.logoDiv,div.user {
 
   transition: all 400ms ease;
 }
-.logo:hover{
+
+.logo:hover {
   z-index: 3;
   transform: scale(1.05);
   transition: all 400ms ease;
-  
+
 }
+
 .navbar {
   width: 100%;
   display: flex;
@@ -65,6 +99,7 @@ header div.logoDiv,div.user {
   align-items: center;
   gap: 10px;
 }
+
 .navbar li {
   display: inline-block;
   padding: 0 25px;
@@ -73,30 +108,37 @@ header div.logoDiv,div.user {
 
   transition: all 400ms ease;
 }
+
 .navbar li:hover {
   border-radius: 20px;
   padding: 10px 25px;
   background-color: #fff;
 
   z-index: 1;
-	transform: scale(1.1);
+  transform: scale(1.1);
   transition: all 400ms ease;
 }
+
 .user {
   position: relative;
   display: flex;
   justify-content: flex-end;
 }
-.user > img,.user > button{
-  margin: 0px 10px 0px; 
+
+.user>img,
+.user>button {
+  margin: 0px 10px 0px;
 
   transition: all 400ms ease;
 }
-.user > img:hover,.user > button:hover{
+
+.user>img:hover,
+.user>button:hover {
   z-index: 1;
-	transform: scale(1.1);
+  transform: scale(1.1);
   transition: all 400ms ease;
 }
+
 .menubar {
   display: none;
   width: 120px;
@@ -111,16 +153,19 @@ header div.logoDiv,div.user {
   background-color: #fff;
   z-index: 2;
 }
+
 .menubar li {
   margin: 15px 5px;
 }
-.menubar li a{
+
+.menubar li a {
   padding: 5px 5px;
   border-radius: 10px;
 
   transition: all 400ms ease;
 }
-.menubar li a:hover{
+
+.menubar li a:hover {
   z-index: 3;
 
   background-color: rgba(78, 197, 61, 1);
@@ -128,25 +173,29 @@ header div.logoDiv,div.user {
 
   transition: all 400ms ease;
 }
-.menubar li:nth-last-of-type(1) > a {
+
+.menubar li:nth-last-of-type(1)>a {
   display: inline-block;
   margin-top: 20px;
   color: #F14A4A;
 
   transition: all 400ms ease;
 }
-.menubar li:nth-last-of-type(1) > a:hover {
+
+.menubar li:nth-last-of-type(1)>a:hover {
   background-color: #F14A4A;
   color: #fff;
 
   transition: all 400ms ease;
 }
+
 .user-profile-img {
   /* display: none; */
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
+
 .login-btn {
   display: none;
   width: 40px;
@@ -156,31 +205,46 @@ header div.logoDiv,div.user {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
 .search-bar {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 5px;
+}
+
+.search-bar > div {
+  display: flex;
+
+  align-items: center;
+
   width: 280px;
   border-radius: 30px;
   padding: 12px 20px;
   background-color: #e7e7e7;
-  position: absolute;
-  top: 120px;
 }
-.search-bar > form {
+
+.search-bar form {
   display: flex;
   /* justify-content: center; */
   align-items: center;
   gap: 10px;
 }
+
 #search {
-  width: 210px;
+  width: 190px;
   border: 0;
-  padding: 5px;
+  padding: 0 10px;
   font-size: 16px;
   outline: none;
   background: none;
 }
+
 .search-bar .search-icon {
   width: 20px;
-  height: 20px;
+  height: 25px;
   border: 0;
   color: gray;
   display: inline-block;
@@ -189,49 +253,41 @@ header div.logoDiv,div.user {
   background-size: contain;
   cursor: pointer;
 }
-.hidden {
-  width: 20px;
-  height: 20px;
-}
+
 .search-bar .cancel {
   display: none;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border: 0;
   background: url(../svg/cancle.svg);
   background-repeat: no-repeat;
 }
-/* 모달창 배경 블러 ********************************/
+.search-bar button:hover {
+  z-index: 1;
+  transform: scale(1.20);
+
+  transition: all 400ms ease;
+}
+
 .modalbackground{
 	position: fixed;
-	top:0;
-	left:0;
+	display: block;
+	top: 0;
+	left: 0;
 	width: 100%;
-	height: 100%;
-	background-color: #ffffff1c;
-	backdrop-filter: blur(10px);
-}
-/* total-wrap 공통사항 ****************************/
-.total-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    margin: auto;
-
-    min-width: 320px;
-    /* min-width: 340px; */
-    max-width: 1024px;
-}
-
-
-section {
-    width: 100%;
+	height:100%;
+	background-color: rgb(0 0 0 / 0%);
+    backdrop-filter: blur(10px);
+	z-index: 0;
 }
 
 @media screen and (max-width: 768px) {
-  header div.logoDiv,div.user {
+  header {
+    margin-bottom: 0px;
+  }
+
+  .header div.logoDiv,
+  div.user {
     width: 40px;
 
     margin: 0 5px;
@@ -245,20 +301,25 @@ section {
     background-size: contain;
     cursor: pointer;
   }
+
   .navbar li {
     padding: 0 5px;
 
     /* font-size: 16px; */
     font-size: 14px;
   }
-  .user > img,.user > button{
+
+  .user>img,
+  .user>button {
     margin: 0px;
   }
+
   .user-profile-img {
     /* display: none; */
     width: 33px;
     height: 33px;
   }
+
   .login-btn {
     width: 33px;
     height: 33px;
@@ -267,11 +328,17 @@ section {
     background-repeat: no-repeat;
     background-size: contain;
   }
+
   .navbar li:hover {
     border-radius: 10px;
     padding: 5px 5px;
     background-color: #fff;
 
     transition: all 400ms ease;
+  }
+
+  .search-bar {
+    margin-top: 0px;
+    margin-bottom: 32px;
   }
 }

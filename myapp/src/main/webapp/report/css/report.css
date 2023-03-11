@@ -19,6 +19,7 @@
   	z-index: 1;
 }
 
+
 /* 사유 리스트 */
 .reasons {
 	display: flex;
@@ -45,7 +46,7 @@
 	display: flex;
 	margin: 0;
 	color: white;
-	background-color: rgb(78 197 61 / 0.80);
+	background-color: #F14A4A;
 	border-radius: 10px 10px 0px 0px;
 	justify-content: center;
 	align-items: center;
@@ -85,7 +86,7 @@
 }
 
 .check:hover label {
-	color: #14ab2c;
+	color: #F14A4A;
 }
 
 .check input[type="radio"] {
@@ -94,10 +95,10 @@
 
 .check input[type="radio"]:checked ~ span {
 	display: inline;
-	color: rgba(78, 197, 61, 1);
+	color: #F14A4A;
 	font-size: 20px;
 }
 
 .check input[type="radio"]:checked ~ label {
-	color: rgba(78, 197, 61, 1);
+	color: #F14A4A;
 }

@@ -1,28 +1,21 @@
 /* common */
-.total-wrap {
-  min-width: 320px;
-  max-width: 1024px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+h2 {
+  margin: 0;
 }
 .container img {
   /* 드래그 방지 */
   -webkit-user-drag: none;
 }
-/* container */
-.container {
-  width: 100%;
-  margin: 100px auto;
-}
 /* container child - common */
+.rank,
 .mountain-info,
 .recruit,
 .review {
   width: 100%;
-  margin: 30px 0;
+}
+section div > h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 .wrap {
   overflow: scroll;
@@ -35,13 +28,21 @@
   display: none;
 }
 .item {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 200px;
+  height: 330px;
   border-radius: 15px;
   padding: 20px;
-  margin: 0 10px;
+  margin: 0 10px 32px;
   text-align: center;
   background-color: #fff;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 0 3px 3px
+		rgba(0, 0, 0, 0.22);
+	border: 0;
+	border-radius: 10px;
 }
 .item > img {
   display: inline-block;
@@ -54,7 +55,6 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  margin: 10px 0 0;
 }
 #title {
   margin: 10px auto;
@@ -65,7 +65,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 .favorite {
@@ -135,9 +135,11 @@
 .recruit-data > p {
   margin: 0;
 }
-.recruit-data > #mountainName {
+/* .recruit-data > #mountainName {
   text-align: center;
-}
+  font-size: 15px;
+  font-weight: bold;
+} */
 /* review */
 .top-info {
   display: flex;

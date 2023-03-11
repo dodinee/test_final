@@ -18,11 +18,10 @@
 <body>
 
 
-	<c:forEach items="${listC}" var="c">
-	
 			<!-- 댓글 전체 컨테이너  -->
-			<div class="cmtcontainer">
+	<div class="cmtcontainer">
 	
+			<c:forEach items="${listC}" var="c">
 				<!-- 멘션일 경우와 아닐경우 분리 -->
 				<c:choose>
 					<c:when test="${c.mentionCd == 0}">
@@ -46,20 +45,21 @@
 				</div>
 				
 				<div class="comment">${c.contents}</div>
+				
 				<c:if test="${c.mentionCd == 0}">
 				<input type="button" class="mentionbtn" name="mentionbtn" value="↪ ︎답글" />
 				</c:if>
+				
 				<div class="updatebtn">
 					<input type="button" name="updatecls" value="취소" />
 					<input type="button" name="updatecmt" value="수정" />
 				</div>
 			</div>
-		</div>
 
 				
-		<!--  멘션 작성 폼 -->  
-		<c:if test="${c.mentionCd == 0}">
-			<!-- <div class="mentionwrite"> -->
+			<!--  멘션 작성 폼 -->  
+			<c:if test="${c.mentionCd == 0}">
+				<!-- <div class="mentionwrite"> -->
 				<div class="cmtwrite mentionwrite">
 					<input type="hidden" id="targetGb" name="targetGb" value="${targetGb}"/>
 					<input type="hidden" id="targetCd" name="targetCd" value="${targetCd }"/>
@@ -69,8 +69,9 @@
 					<input type="button" value="취소" class="cancle">
 				</div>
 			<!-- </div> -->
-		</c:if>
-	</c:forEach>
+			</c:if>
+		</c:forEach>
+		</div>
 	
 	<!-- 새로운 댓글 작성 폼  -->
 	<div class="cmtwrite" id="cmtwrite">

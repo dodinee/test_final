@@ -45,17 +45,13 @@
 
 <body>
 	<div class="total-wrap">
-		<header>
-			<jsp:include page="../header/header.html"></jsp:include><%-- 헤더 --%>
-		</header>
+			<jsp:include page="/header/header.html"></jsp:include><%-- 헤더 --%>
 
 		<section>
-			<!--  게시글 컨테이너  !-->
-			<div class="container">
 				<%-- <input type="hidden" id= "targetGb" name="targetGb" value="SAN_PARTY"/>
 		<input type="hidden" id= "targetCd" name="targetCd" value="${p.sanPartyCd}"/> --%>
 
-				<div class="header">
+				<div class="rheader">
 					<!--  산 이름  -->
 					<div class="mnt">🌱 ${p.sanName} 🌱</div>
 					<%-- 산이름 --%>
@@ -127,24 +123,19 @@
 				</div>
 				<!--  댓글 수  -->
 				<div class="cnt">댓글 (${listC.size()})</div>
-			</div>
 
 
 			<!--   댓글 컨테이너   !-->
-			<div class="container">
 				<c:set var="listC" value="${listC}" />
 				<!--  댓글 목록  -->
 				<!--  새 댓글 작성 폼  -->
 				<jsp:include page="../comment/comment.jsp" />
-			</div>
 
 			<!-- 탑버튼이랑 댓글쓰기버튼  -->
 			<div class="to top">top</div>
 			<div class="to cmt">cmt</div>
 		</section>
-		<footer>
-			<jsp:include page="../footer/footer.html"></jsp:include>
-		</footer>
+			<jsp:include page="/footer/footer.html"></jsp:include>
 	</div>
 </body>
 
